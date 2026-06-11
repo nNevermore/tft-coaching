@@ -7,6 +7,7 @@ export const env = createEnv({
     RIOT_API_KEY: z.string().min(1).optional(),
     STRIPE_SECRET_KEY: z.string().min(1).optional(),
     DATABASE_URL: z.string().url().optional(),
+    TURSO_DB_TOKEN: z.string().min(1).optional(),
     NEXTAUTH_SECRET: z.string().min(1).optional(),
   },
   client: {
@@ -16,7 +17,8 @@ export const env = createEnv({
     NODE_ENV: process.env.NODE_ENV,
     RIOT_API_KEY: process.env.RIOT_API_KEY,
     STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
-    DATABASE_URL: process.env.DATABASE_URL,
+    DATABASE_URL: process.env.DATABASE_URL || process.env.TURSO_DB_URL,
+    TURSO_DB_TOKEN: process.env.TURSO_DB_TOKEN,
     NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
     NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
   },
