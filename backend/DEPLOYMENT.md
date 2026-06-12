@@ -49,6 +49,7 @@ nano .env
 APP_NAME="TFT Coaching"
 APP_ENV=production
 APP_DEBUG=false
+# Jeśli używasz IPv6, adres IP musi być w nawiasach kwadratowych, np. http://[2a01:4f9:3100:1fef::140]
 APP_URL=http://<TWOJ_ADRES_IP_LUB_DOMENA>
 
 DB_CONNECTION=libsql
@@ -65,16 +66,30 @@ Uruchom aplikację w tle. Docker automatycznie pobierze obrazy, zainstaluje zale
 docker compose -f compose.prod.yaml up -d --build
 ```
 
-### Krok 3: Konfiguracja aplikacji wewnątrz kontenera
-Po pierwszym uruchomieniu należy wygenerować klucz szyfrujący aplikacji i uruchomić migracje bazy danych:
+### Krok 3: Konfiguracja aplikacji i klucza szyfrującego
+W kontenerach Docker plik `.env` nie jest wklejany bezpośrednio do obrazu (ze względów bezpieczeństwa). Zamiast tego zmienne są wstrzykiwane przez system z pliku `.env` na VPS. Z tego powodu wygeneruj klucz szyfrujący, dopisz go na serwerze i zrestartuj kontenery:
 
-```bash
-# Wygenerowanie APP_KEY
-docker exec -it tft-coaching-backend php artisan key:generate
-
-# Uruchomienie migracji bazy danych
-docker exec -it tft-coaching-backend php artisan migrate --force
-```
+1. Wyświetl nowo wygenerowany klucz szyfrujący w konsoli:
+   ```bash
+   docker exec -it tft-coaching-backend php artisan key:generate --show
+   ```
+2. Skopiuj wyświetlony klucz (np. `base64:sOmEKkEy...`).
+3. Otwórz plik `.env` na VPS:
+   ```bash
+   nano .env
+   ```
+   Dopisz/zastąp linię:
+   ```env
+   APP_KEY=<SKOPIOWANY_KLUCZ>
+   ```
+4. Zapisz plik (`Ctrl+O`, `Enter`, `Ctrl+X`) i zrestartuj kontener, aby wczytać klucz:
+   ```bash
+   docker compose -f compose.prod.yaml up -d
+   ```
+5. Uruchom migracje bazy danych:
+   ```bash
+   docker exec -it tft-coaching-backend php artisan migrate --force
+   ```
 
 ---
 
