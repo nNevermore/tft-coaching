@@ -26,19 +26,32 @@ export default async function DashboardLayout({
         <div className="p-6">
           <div className="flex items-center gap-3 mb-8">
             <span className="w-3 h-3 rounded-full bg-gradient-to-r from-blue-500 to-teal-500 animate-pulse"></span>
-            <Link href="/" className="text-xl font-bold tracking-wider bg-gradient-to-r from-blue-400 to-emerald-400 text-transparent bg-clip-text hover:opacity-85 transition-opacity">
+            <Link
+              href="/"
+              className="text-xl font-bold tracking-wider bg-gradient-to-r from-blue-400 to-emerald-400 text-transparent bg-clip-text hover:opacity-85 transition-opacity"
+            >
               TFT-COACHING
             </Link>
           </div>
 
           <div className="mb-6 p-4 rounded-xl bg-slate-950/50 border border-slate-800/80">
-            <div className="text-xs text-slate-500 font-medium uppercase tracking-wider mb-1">Konto</div>
-            <div className="text-sm font-semibold truncate text-slate-200">{name}</div>
+            <div className="text-xs text-slate-500 font-medium uppercase tracking-wider mb-1">
+              Konto
+            </div>
+            <div className="text-sm font-semibold truncate text-slate-200">
+              {name}
+            </div>
             {riotId && (
-              <div className="text-xs text-teal-400 font-mono truncate mt-0.5">{riotId}</div>
+              <div className="text-xs text-teal-400 font-mono truncate mt-0.5">
+                {riotId}
+              </div>
             )}
             <div className="text-[10px] mt-2 inline-block px-2 py-0.5 font-bold uppercase tracking-wider rounded bg-slate-800 text-slate-400 border border-slate-700/50">
-              {role === "admin" ? "🔑 Admin" : role === "coach" ? "🎓 Trener" : "🎮 Uczeń"}
+              {role === "admin"
+                ? "🔑 Admin"
+                : role === "coach"
+                  ? "🎓 Trener"
+                  : "🎮 Uczeń"}
             </div>
           </div>
 

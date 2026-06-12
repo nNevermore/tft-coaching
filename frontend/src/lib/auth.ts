@@ -14,7 +14,11 @@ export const authOptions: NextAuthOptions = {
       id: "mock-login",
       name: "Mock Login (Demo)",
       credentials: {
-        email: { label: "Email", type: "email", placeholder: "coach@tft-coaching.net" },
+        email: {
+          label: "Email",
+          type: "email",
+          placeholder: "coach@tft-coaching.net",
+        },
         password: { label: "Hasło", type: "password" },
       },
       async authorize(credentials) {
@@ -31,7 +35,10 @@ export const authOptions: NextAuthOptions = {
             role: "coach",
             riotId: "CoachBartosz#EUNE",
           };
-        } else if (email === "student@tft-coaching.net" && password === "student123") {
+        } else if (
+          email === "student@tft-coaching.net" &&
+          password === "student123"
+        ) {
           return {
             id: "mock-student-id",
             name: "Gracz Janusz",
@@ -39,7 +46,10 @@ export const authOptions: NextAuthOptions = {
             role: "user",
             riotId: "JanuszTFT#EUW",
           };
-        } else if (email === "admin@tft-coaching.net" && password === "admin123") {
+        } else if (
+          email === "admin@tft-coaching.net" &&
+          password === "admin123"
+        ) {
           return {
             id: "mock-admin-id",
             name: "Admin Bartosz",
@@ -63,11 +73,15 @@ export const authOptions: NextAuthOptions = {
         params: { scope: "openid email profile" },
       },
       token: "https://auth.riotgames.com/token",
-      userinfo: "https://europe.api.riotgames.com/riot/account/v1/accounts/by-puuid/me",
+      userinfo:
+        "https://europe.api.riotgames.com/riot/account/v1/accounts/by-puuid/me",
       profile(profile: any) {
         return {
           id: profile.puuid || profile.sub,
-          name: profile.gameName && profile.tagLine ? `${profile.gameName}#${profile.tagLine}` : profile.name,
+          name:
+            profile.gameName && profile.tagLine
+              ? `${profile.gameName}#${profile.tagLine}`
+              : profile.name,
           email: profile.email,
           image: null,
           role: "user",

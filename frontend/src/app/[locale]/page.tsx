@@ -2,9 +2,11 @@
 
 import { useSession, signIn, signOut } from "next-auth/react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 export default function Home() {
   const { data: session, status } = useSession();
+  const t = useTranslations("HomePage");
 
   const handleMockLogin = (email: string) => {
     signIn("mock-login", {
@@ -26,11 +28,9 @@ export default function Home() {
             TFT-COACHING
           </div>
           <h1 className="text-4xl font-extrabold tracking-tight bg-gradient-to-r from-blue-400 via-teal-400 to-emerald-400 text-transparent bg-clip-text">
-            TFT-Coaching
+            {t("title")}
           </h1>
-          <p className="text-sm text-slate-400 mt-2">
-            Profesjonalne sesje coachingowe i analizy VOD. Zaloguj się, aby przetestować platformę.
-          </p>
+          <p className="text-sm text-slate-400 mt-2">{t("description")}</p>
         </div>
 
         {status === "loading" ? (
@@ -42,39 +42,51 @@ export default function Home() {
           <div className="flex flex-col gap-6">
             <div className="p-4 rounded-xl bg-slate-950/60 border border-slate-800 space-y-3">
               <div className="flex justify-between items-center pb-2 border-b border-slate-800/60">
-                <span className="text-xs text-slate-500 uppercase tracking-wider font-semibold">Status</span>
+                <span className="text-xs text-slate-500 uppercase tracking-wider font-semibold">
+                  Status
+                </span>
                 <span className="px-2 py-0.5 text-xs font-medium bg-emerald-500/10 text-emerald-400 rounded-full border border-emerald-500/20">
                   Zalogowany
                 </span>
               </div>
               <div className="space-y-1">
                 <div className="text-xs text-slate-500">Użytkownik</div>
-                <div className="text-sm font-semibold text-slate-200">{session.user?.name}</div>
+                <div className="text-sm font-semibold text-slate-200">
+                  {session.user?.name}
+                </div>
               </div>
               <div className="space-y-1">
                 <div className="text-xs text-slate-500">Email</div>
-                <div className="text-sm text-slate-300">{session.user?.email}</div>
+                <div className="text-sm text-slate-300">
+                  {session.user?.email}
+                </div>
               </div>
               <div className="space-y-1">
                 <div className="text-xs text-slate-500">Rola konta</div>
-                <div className="text-sm font-mono text-blue-400 capitalize">{(session.user as any).role}</div>
+                <div className="text-sm font-mono text-blue-400 capitalize">
+                  {(session.user as any).role}
+                </div>
               </div>
               {(session.user as any).riotId && (
                 <div className="space-y-1">
-                  <div className="text-xs text-slate-500">Powiązany Riot ID</div>
-                  <div className="text-sm font-semibold text-teal-400">{(session.user as any).riotId}</div>
+                  <div className="text-xs text-slate-500">
+                    Powiązany Riot ID
+                  </div>
+                  <div className="text-sm font-semibold text-teal-400">
+                    {(session.user as any).riotId}
+                  </div>
                 </div>
               )}
             </div>
 
             <div className="flex flex-col gap-3">
-              <Link 
+              <Link
                 href="/dashboard"
                 className="w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 to-teal-600 hover:from-blue-500 hover:to-teal-500 font-bold transition-all shadow-lg shadow-blue-500/10 cursor-pointer text-center text-sm block"
               >
                 Przejdź do Panelu (Dashboard)
               </Link>
-              <button 
+              <button
                 onClick={() => signOut({ callbackUrl: "/" })}
                 className="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 font-semibold transition-colors cursor-pointer text-center text-sm"
               >
@@ -85,12 +97,12 @@ export default function Home() {
         ) : (
           <div className="flex flex-col gap-6">
             {/* Riot RSO Button */}
-            <button 
+            <button
               onClick={() => signIn("riot")}
               className="w-full py-3 rounded-xl bg-[#d13639] hover:bg-[#c22e31] font-bold text-white transition-all shadow-lg shadow-red-500/10 cursor-pointer flex items-center justify-center gap-2 text-sm"
             >
               <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
               </svg>
               Zaloguj przez Riot Games (RSO)
             </button>
@@ -105,26 +117,38 @@ export default function Home() {
             </div>
 
             <div className="flex flex-col gap-2.5">
-              <button 
+              <button
                 onClick={() => handleMockLogin("coach@tft-coaching.net")}
                 className="w-full py-3 px-4 rounded-xl border border-slate-800 bg-slate-950/40 hover:bg-slate-950/80 font-medium text-slate-200 transition-colors flex justify-between items-center text-sm cursor-pointer"
               >
-                <span>Zaloguj jako <strong>Trener</strong></span>
-                <span className="text-xs text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded border border-blue-500/20 font-mono">coach123</span>
+                <span>
+                  Zaloguj jako <strong>Trener</strong>
+                </span>
+                <span className="text-xs text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded border border-blue-500/20 font-mono">
+                  coach123
+                </span>
               </button>
-              <button 
+              <button
                 onClick={() => handleMockLogin("student@tft-coaching.net")}
                 className="w-full py-3 px-4 rounded-xl border border-slate-800 bg-slate-950/40 hover:bg-slate-950/80 font-medium text-slate-200 transition-colors flex justify-between items-center text-sm cursor-pointer"
               >
-                <span>Zaloguj jako <strong>Uczeń</strong></span>
-                <span className="text-xs text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20 font-mono">student123</span>
+                <span>
+                  Zaloguj jako <strong>Uczeń</strong>
+                </span>
+                <span className="text-xs text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20 font-mono">
+                  student123
+                </span>
               </button>
-              <button 
+              <button
                 onClick={() => handleMockLogin("admin@tft-coaching.net")}
                 className="w-full py-3 px-4 rounded-xl border border-slate-800 bg-slate-950/40 hover:bg-slate-950/80 font-medium text-slate-200 transition-colors flex justify-between items-center text-sm cursor-pointer"
               >
-                <span>Zaloguj jako <strong>Admin</strong></span>
-                <span className="text-xs text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded border border-purple-500/20 font-mono">admin123</span>
+                <span>
+                  Zaloguj jako <strong>Admin</strong>
+                </span>
+                <span className="text-xs text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded border border-purple-500/20 font-mono">
+                  admin123
+                </span>
               </button>
             </div>
           </div>
