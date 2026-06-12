@@ -17,7 +17,8 @@ export const env = createEnv({
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
     RIOT_API_KEY: process.env.RIOT_API_KEY,
-    STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY || process.env.STRIPE_SECRET_KEY_TESTING,
+    STRIPE_SECRET_KEY:
+      process.env.STRIPE_SECRET_KEY || process.env.STRIPE_SECRET_KEY_TESTING,
     DATABASE_URL: process.env.DATABASE_URL || process.env.TURSO_DB_URL,
     TURSO_DB_TOKEN: process.env.TURSO_DB_TOKEN,
     NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,

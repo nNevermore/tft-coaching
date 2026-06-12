@@ -44,9 +44,10 @@ export async function createCheckoutSession(type: "live" | "vod") {
             currency: "pln",
             product_data: {
               name: priceData.name,
-              description: type === "live" 
-                ? "Sesja coachingowa na żywo 1-na-1 z analizą rozgrywki na Discordzie." 
-                : "Szczegółowa analiza wideo przesłanego nagrania z Twojej gry.",
+              description:
+                type === "live"
+                  ? "Sesja coachingowa na żywo 1-na-1 z analizą rozgrywki na Discordzie."
+                  : "Szczegółowa analiza wideo przesłanego nagrania z Twojej gry.",
             },
             unit_amount: priceData.amount,
           },
@@ -69,6 +70,8 @@ export async function createCheckoutSession(type: "live" | "vod") {
     return { url: checkoutSession.url };
   } catch (error: any) {
     console.error("Stripe Checkout Error:", error);
-    throw new Error(error.message || "Wystąpił nieoczekiwany błąd płatności Stripe.");
+    throw new Error(
+      error.message || "Wystąpił nieoczekiwany błąd płatności Stripe.",
+    );
   }
 }

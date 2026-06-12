@@ -1,4 +1,9 @@
-import { integer, sqliteTable, text, primaryKey } from "drizzle-orm/sqlite-core";
+import {
+  integer,
+  sqliteTable,
+  text,
+  primaryKey,
+} from "drizzle-orm/sqlite-core";
 import type { AdapterAccount } from "next-auth/adapters";
 
 export const users = sqliteTable("user", {
@@ -34,7 +39,7 @@ export const accounts = sqliteTable(
     compoundKey: primaryKey({
       columns: [account.provider, account.providerAccountId],
     }),
-  })
+  }),
 );
 
 export const sessions = sqliteTable("session", {
@@ -54,7 +59,7 @@ export const verificationTokens = sqliteTable(
   },
   (vt) => ({
     compoundKey: primaryKey({ columns: [vt.identifier, vt.token] }),
-  })
+  }),
 );
 
 // Coaching specific tables
@@ -80,12 +85,15 @@ export const bookings = sqliteTable("booking", {
   packageId: text("package_id")
     .notNull()
     .references(() => coachingPackages.id),
-  status: text("status", { enum: ["pending", "confirmed", "completed", "cancelled"] })
+  status: text("status", {
+    enum: ["pending", "confirmed", "completed", "cancelled"],
+  })
     .default("pending")
     .notNull(),
   scheduledAt: integer("scheduled_at", { mode: "timestamp" }),
   discordUsername: text("discord_username"),
   summonerName: text("summoner_name"),
-  createdAt: integer("created_at", { mode: "timestamp" })
-    .$defaultFn(() => new Date()),
+  createdAt: integer("created_at", { mode: "timestamp" }).$defaultFn(
+    () => new Date(),
+  ),
 });
