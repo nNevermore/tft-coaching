@@ -15,13 +15,17 @@ RUN npm run build
 # --- Stage 2: Production PHP application ---
 FROM serversideup/php:8.4-fpm-nginx
 
+# Switch to root user to perform installations
+USER root
+
 # Install the PHP FFI extension (required by Turso DB driver)
-RUN apt-get update && \
-    install-php-extensions ffi && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN install-php-extensions ffi
 
 # Enable FFI
 RUN echo "ffi.enable=true" > /usr/local/etc/php/conf.d/docker-php-ext-ffi.ini
+
+# Drop back to unprivileged user
+USER www-data
 
 # Set active working directory
 WORKDIR /var/www/html
