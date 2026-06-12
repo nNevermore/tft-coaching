@@ -12,7 +12,10 @@ Route::get('/status', function () {
     try {
         \Illuminate\Support\Facades\DB::connection()->getPdo();
         $dbConnected = true;
-    } catch (\Exception $e) {
+    } catch (\Throwable $e) {
+        \Illuminate\Support\Facades\Log::error('Database connection test failed: ' . $e->getMessage(), [
+            'exception' => $e
+        ]);
         // Silently fail, dbConnected remains false
     }
 
