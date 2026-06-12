@@ -22,7 +22,7 @@ USER root
 RUN install-php-extensions ffi
 
 # Enable FFI
-RUN echo "ffi.enable=true" > /usr/local/etc/php/conf.d/docker-php-ext-ffi.ini
+RUN echo "ffi.enable=true" > /usr/local/etc/php/conf.d/99-ffi.ini
 
 # Drop back to unprivileged user
 USER www-data
