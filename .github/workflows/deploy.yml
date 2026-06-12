@@ -1,0 +1,25 @@
+name: Deploy Backend to Mikrus VPS
+
+on:
+  push:
+    branches:
+      - master # Zmień na master, jeśli to jest Twoja główna gałąź
+    paths:
+      - 'backend/**' # Uruchamiaj tylko przy zmianach w backendzie (opcjonalne)
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: norbert140.mikrus.xyz
+          port: 10140
+          username: root
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /var/www/tft-coaching
+            git pull
+            docker compose -f backend/compose.prod.yaml up -d --build

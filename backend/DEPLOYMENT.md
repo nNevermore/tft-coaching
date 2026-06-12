@@ -119,3 +119,51 @@ Docker automatycznie:
 Aby podpiąć własną domenę (np. `api.tft-coaching.pl`) i zabezpieczyć ruch przez HTTPS (SSL):
 1. **DNS**: Dodaj rekord typu **A** (skierowany na IPv4 VPS) lub rekord typu **AAAA** (skierowany na IPv6 VPS) u swojego rejestratora domeny.
 2. **UFW & SSL**: Skonfiguruj zaporę oraz zainstaluj darmowy certyfikat SSL za pomocą Certbota na poziomie systemu VPS (działającego jako reverse-proxy do portu kontenera).
+
+---
+
+## 5. Automatyzacja wdrożenia (Jedno kliknięcie lub Autopull)
+
+Aby nie wpisywać haseł i komend przy każdym wdrożeniu, skonfiguruj **logowanie kluczem SSH bez hasła** (krok wymagany dla obu poniższych metod).
+
+### Krok A: Konfiguracja klucza SSH na serwerze Mikrus
+
+1. **Generowanie klucza na swoim komputerze** (jeśli jeszcze go nie masz):
+   Otwórz PowerShell na swoim komputerze i uruchom:
+   ```powershell
+   ssh-keygen -t ed25519 -C "twoj-email@example.com"
+   ```
+   (Zatwierdź domyślne ścieżki klikając Enter, nie ustawiaj hasła do klucza).
+
+2. **Skopiowanie klucza publicznego na VPS**:
+   Uruchom poniższe polecenie w PowerShell (podając swoje hasło po raz ostatni):
+   ```powershell
+   cat ~/.ssh/id_ed25519.pub | ssh -p 10140 root@norbert140.mikrus.xyz "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys"
+   ```
+
+Po tym kroku powinieneś móc zalogować się poleceniem `ssh root@norbert140.mikrus.xyz -p 10140` bez pytania o hasło.
+
+---
+
+### Metoda 1: Automatyzacja przez GitHub Actions (Wdrożenie po `git push`)
+
+W katalogu `.github/workflows/deploy.yml` znajduje się gotowy plik workflow. Aby go uruchomić:
+1. Wejdź na GitHubie w ustawienia swojego repozytorium: **Settings** -> **Secrets and variables** -> **Actions**.
+2. Kliknij **New repository secret**.
+3. Nazwij go **`SSH_PRIVATE_KEY`**.
+4. W polu wartości wklej zawartość swojego **prywatnego klucza** z komputera (plik `~/.ssh/id_ed25519` bez rozszerzenia `.pub`).
+5. Każdy push do gałęzi `main` automatycznie połączy się z VPS, pobierze zmiany i przebuduje kontenery.
+
+---
+
+### Metoda 2: Skrypt lokalny na pulpicie (Jedno kliknięcie)
+
+W głównym folderze projektu zostały utworzone pliki:
+- `deploy.ps1` – skrypt PowerShell
+- `deploy.bat` – plik uruchamiający
+
+Możesz skrót do pliku `deploy.bat` wyciągnąć na Pulpit. Dwukrotne kliknięcie automatycznie:
+1. Połączy się z Mikrusem przez SSH.
+2. Wykona `git pull`.
+3. Wykona `docker compose up -d --build`.
+
