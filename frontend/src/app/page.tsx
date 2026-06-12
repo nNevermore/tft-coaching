@@ -1,6 +1,7 @@
 "use client";
 
 import { useSession, signIn, signOut } from "next-auth/react";
+import Link from "next/link";
 
 export default function Home() {
   const { data: session, status } = useSession();
@@ -67,9 +68,12 @@ export default function Home() {
             </div>
 
             <div className="flex flex-col gap-3">
-              <button className="w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 to-teal-600 hover:from-blue-500 hover:to-teal-500 font-bold transition-all shadow-lg shadow-blue-500/10 cursor-pointer text-center text-sm">
+              <Link 
+                href="/dashboard"
+                className="w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 to-teal-600 hover:from-blue-500 hover:to-teal-500 font-bold transition-all shadow-lg shadow-blue-500/10 cursor-pointer text-center text-sm block"
+              >
                 Przejdź do Panelu (Dashboard)
-              </button>
+              </Link>
               <button 
                 onClick={() => signOut({ callbackUrl: "/" })}
                 className="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 font-semibold transition-colors cursor-pointer text-center text-sm"
