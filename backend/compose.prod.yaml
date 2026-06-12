@@ -1,0 +1,16 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    container_name: tft-coaching-backend
+    restart: always
+    ports:
+      - "80:8080"
+    env_file:
+      - .env
+    volumes:
+      - storage-data:/var/www/html/storage
+
+volumes:
+  storage-data:
