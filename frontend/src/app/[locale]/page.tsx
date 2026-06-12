@@ -1,163 +1,233 @@
-"use client";
-
-import { useSession, signIn, signOut } from "next-auth/react";
-import Link from "next/link";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import ReviewsWidget from "@/components/ReviewsWidget";
+import CookieBanner from "@/components/CookieBanner";
+import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 
 export default function Home() {
-  const { data: session, status } = useSession();
   const t = useTranslations("HomePage");
 
-  const handleMockLogin = (email: string) => {
-    signIn("mock-login", {
-      email,
-      password: email.split("@")[0] + "123", // e.g. coach123, student123, admin123
-      callbackUrl: "/",
-    });
-  };
-
   return (
-    <div className="min-h-screen bg-slate-950 text-white flex flex-col items-center justify-center p-6 font-[family-name:var(--font-geist-sans)] selection:bg-blue-500 selection:text-white">
+    <div className="min-h-screen bg-slate-950 text-white flex flex-col relative overflow-hidden font-[family-name:var(--font-geist-sans)]">
       {/* Background glow effects */}
-      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
-      <main className="z-10 w-full max-w-md p-8 rounded-2xl border border-slate-800 bg-slate-900/60 backdrop-blur-xl shadow-2xl">
-        <div className="flex flex-col gap-2 items-center text-center mb-8">
-          <div className="px-3 py-1 text-xs font-semibold tracking-wider text-blue-400 bg-blue-500/10 rounded-full border border-blue-500/20 mb-2">
-            TFT-COACHING
-          </div>
-          <h1 className="text-4xl font-extrabold tracking-tight bg-gradient-to-r from-blue-400 via-teal-400 to-emerald-400 text-transparent bg-clip-text">
-            {t("title")}
-          </h1>
-          <p className="text-sm text-slate-400 mt-2">{t("description")}</p>
-        </div>
+      <Navbar />
 
-        {status === "loading" ? (
-          <div className="flex flex-col items-center justify-center py-8 gap-3">
-            <div className="w-8 h-8 border-4 border-blue-500/20 border-t-blue-500 rounded-full animate-spin"></div>
-            <p className="text-sm text-slate-400">Ładowanie sesji...</p>
-          </div>
-        ) : session ? (
-          <div className="flex flex-col gap-6">
-            <div className="p-4 rounded-xl bg-slate-950/60 border border-slate-800 space-y-3">
-              <div className="flex justify-between items-center pb-2 border-b border-slate-800/60">
-                <span className="text-xs text-slate-500 uppercase tracking-wider font-semibold">
-                  Status
-                </span>
-                <span className="px-2 py-0.5 text-xs font-medium bg-emerald-500/10 text-emerald-400 rounded-full border border-emerald-500/20">
-                  Zalogowany
-                </span>
-              </div>
-              <div className="space-y-1">
-                <div className="text-xs text-slate-500">Użytkownik</div>
-                <div className="text-sm font-semibold text-slate-200">
-                  {session.user?.name}
-                </div>
-              </div>
-              <div className="space-y-1">
-                <div className="text-xs text-slate-500">Email</div>
-                <div className="text-sm text-slate-300">
-                  {session.user?.email}
-                </div>
-              </div>
-              <div className="space-y-1">
-                <div className="text-xs text-slate-500">Rola konta</div>
-                <div className="text-sm font-mono text-blue-400 capitalize">
-                  {(session.user as any).role}
-                </div>
-              </div>
-              {(session.user as any).riotId && (
-                <div className="space-y-1">
-                  <div className="text-xs text-slate-500">
-                    Powiązany Riot ID
-                  </div>
-                  <div className="text-sm font-semibold text-teal-400">
-                    {(session.user as any).riotId}
-                  </div>
-                </div>
-              )}
+      <main className="flex-grow">
+        {/* HERO SECTION */}
+        <section className="relative pt-24 pb-20 sm:pt-32 sm:pb-28">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-8">
+            {/* Discord Community Badge */}
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-blue-500/20 bg-blue-500/5 text-xs font-semibold text-blue-450 hover:bg-blue-500/10 transition-all cursor-pointer">
+              <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+              {t("discordBadge")}
             </div>
 
-            <div className="flex flex-col gap-3">
+            {/* Hero Main Heading */}
+            <div className="max-w-4xl mx-auto space-y-4">
+              <h1 className="text-4xl font-extrabold tracking-tight sm:text-6xl bg-gradient-to-r from-white via-slate-100 to-slate-400 text-transparent bg-clip-text">
+                {t("title")}{" "}
+                <span className="bg-gradient-to-r from-blue-400 via-teal-400 to-emerald-400 text-transparent bg-clip-text">
+                  1-on-1
+                </span>
+              </h1>
+              <p className="max-w-2xl mx-auto text-sm sm:text-base text-slate-400 leading-relaxed">
+                {t("description")}
+              </p>
+            </div>
+
+            {/* Call to Actions */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-xs sm:max-w-none mx-auto">
               <Link
                 href="/dashboard"
-                className="w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 to-teal-600 hover:from-blue-500 hover:to-teal-500 font-bold transition-all shadow-lg shadow-blue-500/10 cursor-pointer text-center text-sm block"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-teal-600 hover:from-blue-500 hover:to-teal-500 font-extrabold text-sm transition-all shadow-lg shadow-blue-500/10 text-center cursor-pointer"
               >
-                Przejdź do Panelu (Dashboard)
+                {t("heroCtaBook")}
               </Link>
-              <button
-                onClick={() => signOut({ callbackUrl: "/" })}
-                className="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 font-semibold transition-colors cursor-pointer text-center text-sm"
+              <a
+                href="#services"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-xl border border-slate-800 bg-slate-900/40 hover:bg-slate-900/70 hover:border-slate-700 font-bold text-sm text-slate-300 hover:text-white transition-all text-center cursor-pointer"
               >
-                Wyloguj się
-              </button>
+                {t("heroCtaOffer")}
+              </a>
             </div>
           </div>
-        ) : (
-          <div className="flex flex-col gap-6">
-            {/* Riot RSO Button */}
-            <button
-              onClick={() => signIn("riot")}
-              className="w-full py-3 rounded-xl bg-[#d13639] hover:bg-[#c22e31] font-bold text-white transition-all shadow-lg shadow-red-500/10 cursor-pointer flex items-center justify-center gap-2 text-sm"
-            >
-              <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
-              </svg>
-              Zaloguj przez Riot Games (RSO)
-            </button>
+        </section>
 
-            <div className="relative flex items-center justify-center py-2">
-              <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-slate-800"></div>
+        {/* SERVICES SECTION */}
+        <section
+          id="services"
+          className="py-20 border-t border-slate-900 bg-slate-950/20 relative"
+        >
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="text-center max-w-2xl mx-auto mb-16">
+              <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+                {t("servicesTitle")}
+              </h2>
+              <p className="mt-4 text-slate-450 text-sm sm:text-base leading-relaxed">
+                {t("servicesSubtitle")}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* Card 1: Live Coaching */}
+              <div className="p-8 rounded-2xl border border-slate-850 bg-slate-900/20 hover:border-slate-750 transition-all flex flex-col justify-between h-96 group">
+                <div className="space-y-4">
+                  <div className="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-xl shadow-inner group-hover:scale-105 transition-transform">
+                    🎮
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-200">
+                    {t("serviceLiveTitle")}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-450 leading-relaxed">
+                    {t("serviceLiveDesc")}
+                  </p>
+                </div>
+                <div className="pt-6 border-t border-slate-850/60 flex items-center justify-between">
+                  <span className="text-sm font-bold text-slate-300">
+                    120.00 PLN
+                  </span>
+                  <Link
+                    href="/dashboard"
+                    className="text-xs font-extrabold text-blue-400 hover:text-blue-300 transition-colors"
+                  >
+                    {t("heroCtaBook")} →
+                  </Link>
+                </div>
               </div>
-              <span className="relative px-3 text-xs text-slate-500 bg-slate-900 uppercase tracking-widest font-semibold">
-                Lokalne konta demo
-              </span>
-            </div>
 
-            <div className="flex flex-col gap-2.5">
-              <button
-                onClick={() => handleMockLogin("coach@tft-coaching.net")}
-                className="w-full py-3 px-4 rounded-xl border border-slate-800 bg-slate-950/40 hover:bg-slate-950/80 font-medium text-slate-200 transition-colors flex justify-between items-center text-sm cursor-pointer"
-              >
-                <span>
-                  Zaloguj jako <strong>Trener</strong>
-                </span>
-                <span className="text-xs text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded border border-blue-500/20 font-mono">
-                  coach123
-                </span>
-              </button>
-              <button
-                onClick={() => handleMockLogin("student@tft-coaching.net")}
-                className="w-full py-3 px-4 rounded-xl border border-slate-800 bg-slate-950/40 hover:bg-slate-950/80 font-medium text-slate-200 transition-colors flex justify-between items-center text-sm cursor-pointer"
-              >
-                <span>
-                  Zaloguj jako <strong>Uczeń</strong>
-                </span>
-                <span className="text-xs text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20 font-mono">
-                  student123
-                </span>
-              </button>
-              <button
-                onClick={() => handleMockLogin("admin@tft-coaching.net")}
-                className="w-full py-3 px-4 rounded-xl border border-slate-800 bg-slate-950/40 hover:bg-slate-950/80 font-medium text-slate-200 transition-colors flex justify-between items-center text-sm cursor-pointer"
-              >
-                <span>
-                  Zaloguj jako <strong>Admin</strong>
-                </span>
-                <span className="text-xs text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded border border-purple-500/20 font-mono">
-                  admin123
-                </span>
-              </button>
+              {/* Card 2: VOD Review */}
+              <div className="p-8 rounded-2xl border border-slate-850 bg-slate-900/20 hover:border-slate-750 transition-all flex flex-col justify-between h-96 group">
+                <div className="space-y-4">
+                  <div className="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-xl shadow-inner group-hover:scale-105 transition-transform">
+                    📼
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-200">
+                    {t("serviceVodTitle")}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-450 leading-relaxed">
+                    {t("serviceVodDesc")}
+                  </p>
+                </div>
+                <div className="pt-6 border-t border-slate-850/60 flex items-center justify-between">
+                  <span className="text-sm font-bold text-slate-300">
+                    80.00 PLN
+                  </span>
+                  <Link
+                    href="/dashboard"
+                    className="text-xs font-extrabold text-teal-400 hover:text-teal-300 transition-colors"
+                  >
+                    {t("heroCtaBook")} →
+                  </Link>
+                </div>
+              </div>
+
+              {/* Card 3: Community Discord */}
+              <div className="p-8 rounded-2xl border border-slate-850 bg-slate-900/20 hover:border-slate-750 transition-all flex flex-col justify-between h-96 group">
+                <div className="space-y-4">
+                  <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-xl shadow-inner group-hover:scale-105 transition-transform">
+                    👥
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-200">
+                    {t("serviceTeamTitle")}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-450 leading-relaxed">
+                    {t("serviceTeamDesc")}
+                  </p>
+                </div>
+                <div className="pt-6 border-t border-slate-850/60 flex items-center justify-between">
+                  <span className="text-sm font-bold text-slate-300">
+                    FREE / Community
+                  </span>
+                  <Link
+                    href="/contact"
+                    className="text-xs font-extrabold text-purple-400 hover:text-purple-300 transition-colors"
+                  >
+                    Join Server →
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
-        )}
+        </section>
+
+        {/* PROCESS SECTION */}
+        <section className="py-20 border-t border-slate-900 bg-slate-950/40 relative">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="text-center max-w-2xl mx-auto mb-16">
+              <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+                {t("processTitle")}
+              </h2>
+              <p className="mt-4 text-slate-450 text-sm sm:text-base leading-relaxed">
+                {t("processSubtitle")}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+              {/* Step 1 */}
+              <div className="p-6 rounded-2xl border border-slate-850/60 bg-slate-900/10 space-y-3">
+                <h3 className="text-lg font-bold text-blue-400">
+                  {t("step1Title")}
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-450 leading-relaxed">
+                  {t("step1Desc")}
+                </p>
+              </div>
+
+              {/* Step 2 */}
+              <div className="p-6 rounded-2xl border border-slate-850/60 bg-slate-900/10 space-y-3">
+                <h3 className="text-lg font-bold text-teal-400">
+                  {t("step2Title")}
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-450 leading-relaxed">
+                  {t("step2Desc")}
+                </p>
+              </div>
+
+              {/* Step 3 */}
+              <div className="p-6 rounded-2xl border border-slate-850/60 bg-slate-900/10 space-y-3">
+                <h3 className="text-lg font-bold text-emerald-400">
+                  {t("step3Title")}
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-450 leading-relaxed">
+                  {t("step3Desc")}
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* REVIEWS WIDGET */}
+        <ReviewsWidget />
+
+        {/* BOTTOM CTA SECTION */}
+        <section className="py-20 relative overflow-hidden border-t border-slate-900 bg-slate-950">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-blue-500/5 to-teal-500/5 rounded-full blur-3xl pointer-events-none"></div>
+
+          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
+            <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4.5xl">
+              {t("ctaTitle")}
+            </h2>
+            <p className="max-w-xl mx-auto text-xs sm:text-sm text-slate-400 leading-relaxed">
+              {t("ctaSubtitle")}
+            </p>
+            <div className="pt-4">
+              <Link
+                href="/login"
+                className="inline-block px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-teal-600 hover:from-blue-500 hover:to-teal-500 font-extrabold text-sm transition-all shadow-lg shadow-blue-500/20"
+              >
+                {t("ctaButton")}
+              </Link>
+            </div>
+          </div>
+        </section>
       </main>
 
-      <footer className="mt-12 text-slate-500 text-xs">
-        © {new Date().getFullYear()} TFT-Coaching.net • Wersja Demo Portfolio
-      </footer>
+      <CookieBanner />
+      <Footer />
     </div>
   );
 }
