@@ -50,7 +50,11 @@ APP_NAME="TFT Coaching"
 APP_ENV=production
 APP_DEBUG=false
 # Jeśli używasz IPv6, adres IP musi być w nawiasach kwadratowych, np. http://[2a01:4f9:3100:1fef::140]
+# Najlepiej wpisać docelową domenę, nawet jeśli jeszcze nie jest podpięta, np. http://api.twojadomena.pl (lub http://localhost)
 APP_URL=http://<TWOJ_ADRES_IP_LUB_DOMENA>
+
+# Puste pole - klucz wygenerujemy w Kroku 3
+APP_KEY=
 
 DB_CONNECTION=libsql
 TURSO_DB_URL=libsql://tft-coaching-db-bartoszwoj.aws-eu-west-1.turso.io
