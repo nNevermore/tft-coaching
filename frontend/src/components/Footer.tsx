@@ -18,7 +18,7 @@ export default function Footer() {
                 {t("logo")}
               </span>
             </div>
-            <p className="text-sm text-slate-500 max-w-sm">
+            <p className="text-sm text-slate-400 max-w-sm">
               {t("description")}
             </p>
           </div>
@@ -84,10 +84,10 @@ export default function Footer() {
 
         {/* Riot Disclaimer and Copyright */}
         <div className="mt-12 pt-8 border-t border-slate-900 space-y-4">
-          <p className="text-[11px] text-slate-600 leading-relaxed text-center md:text-left">
+          <p className="text-[11px] text-slate-400 leading-relaxed text-center md:text-left">
             {t("riotDisclaimer")}
           </p>
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-600">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400">
             <span>
               &copy; {new Date().getFullYear()} {t("logo")}. {t("rights")}
             </span>

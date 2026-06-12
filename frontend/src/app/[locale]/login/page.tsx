@@ -55,7 +55,7 @@ export default function LoginPage() {
           <h1 className="text-2xl font-extrabold tracking-tight text-white">
             {t("title")}
           </h1>
-          <p className="text-xs text-slate-450 mt-1 leading-relaxed">
+          <p className="text-xs text-slate-400 mt-1 leading-relaxed">
             {t("subtitle")}
           </p>
         </div>

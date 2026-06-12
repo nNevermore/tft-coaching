@@ -73,6 +73,7 @@ export default function Navbar() {
             {/* Language Switcher */}
             <button
               onClick={toggleLocale}
+              aria-label="Toggle language"
               className="px-3 py-1.5 rounded-lg border border-slate-800 hover:border-slate-700 bg-slate-900/40 text-xs font-semibold text-slate-300 hover:text-white transition-all cursor-pointer flex items-center gap-1 uppercase"
             >
               🌐 {currentLocale}
@@ -108,12 +109,14 @@ export default function Navbar() {
           <div className="flex md:hidden items-center gap-3">
             <button
               onClick={toggleLocale}
+              aria-label="Toggle language"
               className="px-2.5 py-1.5 rounded-lg border border-slate-800 bg-slate-900/40 text-xs font-semibold text-slate-300 uppercase cursor-pointer"
             >
               {currentLocale}
             </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
+              aria-label="Toggle menu"
               className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-900 focus:outline-none cursor-pointer"
             >
               <svg

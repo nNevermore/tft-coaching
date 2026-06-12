@@ -67,7 +67,7 @@ export default function Home() {
               <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
                 {t("servicesTitle")}
               </h2>
-              <p className="mt-4 text-slate-450 text-sm sm:text-base leading-relaxed">
+              <p className="mt-4 text-slate-400 text-sm sm:text-base leading-relaxed">
                 {t("servicesSubtitle")}
               </p>
             </div>
@@ -82,7 +82,7 @@ export default function Home() {
                   <h3 className="text-xl font-bold text-slate-200">
                     {t("serviceLiveTitle")}
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-450 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
                     {t("serviceLiveDesc")}
                   </p>
                 </div>
@@ -108,7 +108,7 @@ export default function Home() {
                   <h3 className="text-xl font-bold text-slate-200">
                     {t("serviceVodTitle")}
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-450 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
                     {t("serviceVodDesc")}
                   </p>
                 </div>
@@ -134,7 +134,7 @@ export default function Home() {
                   <h3 className="text-xl font-bold text-slate-200">
                     {t("serviceTeamTitle")}
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-450 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
                     {t("serviceTeamDesc")}
                   </p>
                 </div>
@@ -161,7 +161,7 @@ export default function Home() {
               <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
                 {t("processTitle")}
               </h2>
-              <p className="mt-4 text-slate-450 text-sm sm:text-base leading-relaxed">
+              <p className="mt-4 text-slate-400 text-sm sm:text-base leading-relaxed">
                 {t("processSubtitle")}
               </p>
             </div>
@@ -172,7 +172,7 @@ export default function Home() {
                 <h3 className="text-lg font-bold text-blue-400">
                   {t("step1Title")}
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-450 leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
                   {t("step1Desc")}
                 </p>
               </div>
@@ -182,7 +182,7 @@ export default function Home() {
                 <h3 className="text-lg font-bold text-teal-400">
                   {t("step2Title")}
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-450 leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
                   {t("step2Desc")}
                 </p>
               </div>
@@ -192,7 +192,7 @@ export default function Home() {
                 <h3 className="text-lg font-bold text-emerald-400">
                   {t("step3Title")}
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-450 leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
                   {t("step3Desc")}
                 </p>
               </div>

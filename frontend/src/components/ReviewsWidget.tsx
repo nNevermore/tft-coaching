@@ -50,7 +50,7 @@ export default function ReviewsWidget() {
           <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
             {t("reviewsTitle")}
           </h2>
-          <p className="mt-4 text-slate-450 text-sm sm:text-base leading-relaxed">
+          <p className="mt-4 text-slate-400 text-sm sm:text-base leading-relaxed">
             {t("reviewsSubtitle")}
           </p>
         </div>
@@ -87,11 +87,11 @@ export default function ReviewsWidget() {
                   {review.name.split(" ")[0][0]}
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-slate-200">
+                  <h3 className="text-sm font-bold text-slate-200">
                     {review.name}
-                  </h4>
+                  </h3>
                   <div className="flex items-center gap-2 mt-1">
-                    <span className="text-[10px] text-slate-500 line-through">
+                    <span className="text-[10px] text-slate-400 line-through">
                       {review.rankFrom}
                     </span>
                     <span className="text-[10px] font-bold text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">

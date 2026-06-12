@@ -167,7 +167,7 @@ export default function ContactPage() {
                   <h3 className="text-lg font-bold text-slate-200">
                     {t("infoTitle")}
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-450 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
                     {t("infoDesc")}
                   </p>
                 </div>
