@@ -35,4 +35,15 @@ return [
         ],
     ],
 
+    'riot' => [
+        'key' => env('RIOT_API_KEY'),
+        'region' => env('RIOT_REGION', 'eun1'),
+        'routing' => env('RIOT_ROUTING', 'europe'),
+    ],
+
+    'stripe' => [
+        'key' => env('STRIPE_SECRET'),
+        'webhook_secret' => env('STRIPE_WEBHOOK_SECRET'),
+    ],
+
 ];

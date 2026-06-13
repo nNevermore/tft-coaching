@@ -5,6 +5,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import { env } from "@/env";
 import "../globals.css";
 
 const geistSans = Geist({
@@ -26,8 +27,46 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "HomePage" });
 
   return {
-    title: t("title"),
+    title: {
+      template: `%s | TFT-Coaching Elite`,
+      default: t("title"),
+    },
     description: t("description"),
+    metadataBase: new URL(
+      env.NEXT_PUBLIC_APP_URL || "https://tft-coaching.net",
+    ),
+    alternates: {
+      canonical: "/",
+      languages: {
+        "en-US": "/en",
+        "pl-PL": "/pl",
+      },
+    },
+    openGraph: {
+      title: "TFT-Coaching | Elite Tactical Training",
+      description:
+        "Optimize your early-game economy and late-game positioning with Radiant-tier specialists.",
+      url: "https://tft-coaching.net",
+      siteName: "TFT-Coaching",
+      images: [
+        {
+          url: "/og-image.png",
+          width: 1200,
+          height: 630,
+        },
+      ],
+      locale: locale,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "TFT-Coaching Elite Program",
+      description: "Data-driven coaching for Teamfight Tactics.",
+      images: ["/og-image.png"],
+    },
+    icons: {
+      icon: "/favicon.ico",
+    },
   };
 }
 
