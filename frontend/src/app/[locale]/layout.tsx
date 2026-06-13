@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import { Providers } from "@/components/Providers";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
@@ -7,16 +6,6 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { env } from "@/env";
 import "../globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export async function generateMetadata({
   params,
@@ -93,10 +82,7 @@ export default async function RootLayout({
       !process.env.STRIPE_SECRET_KEY);
 
   return (
-    <html
-      lang={locale}
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
+    <html lang={locale} className="h-full antialiased">
       <body className={`min-h-full flex flex-col ${isDemoMode ? "pb-12" : ""}`}>
         <NextIntlClientProvider messages={messages}>
           <Providers>
