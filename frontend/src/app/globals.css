@@ -5,20 +5,30 @@
   font-family: geomanist;
   font-style: normal;
   font-weight: 300;
-  src:
-    url(../assets/fonts/geomanist/geomanist-light.woff) format("woff"),
-    url(../assets/fonts/geomanist/geomanist-light.woff2) format("woff2");
+  src: url(../assets/fonts/geomanist/geomanist-light.woff) format("woff"),
+       url(../assets/fonts/geomanist/geomanist-light.woff2) format("woff2");
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --font-geist-sans:
-    geomanist, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-geist-mono:
-    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
-    "Courier New", monospace;
+  /* ==========================================================================
+     CUSTOMIZABLE COLOR PALETTE
+     Easily modify the project's color theme by changing these values.
+     ========================================================================== */
+  --color-primary-base: #000000;       /* Base black background */
+  --color-primary-card: #14213d;       /* Dark navy for cards and panels */
+  --color-accent: #fca311;             /* Gold/orange for highlights and CTAs */
+  --color-text-muted: #e5e5e5;         /* Muted light gray for readability */
+  --color-text-bright: #ffffff;        /* Crisp white for headers and active text */
+
+  /* Derived layout variables */
+  --color-primary-card-hover: #1c2d52; /* Slightly lighter navy for hover states */
+  --color-primary-border: #23355c;     /* Subtle border color for components */
+
+  /* Next.js & Font configurations */
+  --background: var(--color-primary-base);
+  --foreground: var(--color-text-bright);
+  --font-geist-sans: geomanist, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-geist-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 @theme inline {
@@ -26,12 +36,38 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* Map core tailwind layout colors to our customizable variables */
+  --color-slate-950: var(--color-primary-base);
+  --color-slate-900: var(--color-primary-card);
+  --color-slate-850: var(--color-primary-card-hover);
+  --color-slate-800: var(--color-primary-border);
+  --color-slate-700: var(--color-primary-border);
+  --color-slate-600: var(--color-primary-border);
+
+  /* Map tailwind text slate shades for maximum readability */
+  --color-slate-500: var(--color-text-muted);
+  --color-slate-400: var(--color-text-muted);
+  --color-slate-300: var(--color-text-muted);
+  --color-slate-200: var(--color-text-muted);
+  --color-slate-100: var(--color-text-bright);
+
+  /* Map accent colors (blue/teal) to our gold accent color (#fca311) */
+  --color-blue-400: var(--color-accent);
+  --color-blue-500: var(--color-accent);
+  --color-blue-600: var(--color-accent);
+  --color-blue-700: var(--color-accent);
+  
+  --color-teal-400: var(--color-accent);
+  --color-teal-500: var(--color-accent);
+  --color-teal-600: var(--color-accent);
+  --color-teal-700: var(--color-accent);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: var(--color-primary-base);
+    --foreground: var(--color-text-bright);
   }
 }
 
