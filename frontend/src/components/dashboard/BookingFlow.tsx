@@ -22,7 +22,7 @@ const COACHES: Coach[] = [
   {
     id: "c1",
     name: "Mismatched",
-    rank: "Radiant",
+    rank: "Master",
     specialty: "Early Game & Econ",
     avatar: "Mismatched",
     winRate: "68%",
@@ -259,11 +259,10 @@ export default function BookingFlow() {
                   key={slot.id}
                   disabled={slot.status !== "available"}
                   onClick={() => handleSlotSelect(slot.id)}
-                  className={`p-4 rounded-xl border font-mono text-sm transition-all flex flex-col items-center gap-1 cursor-pointer ${
-                    slot.status === "available"
+                  className={`p-4 rounded-xl border font-mono text-sm transition-all flex flex-col items-center gap-1 cursor-pointer ${slot.status === "available"
                       ? "border-white/5 bg-slate-950/40 text-white hover:border-teal-500/50 hover:bg-teal-500/5"
                       : "border-red-900/20 bg-red-950/10 text-red-900 opacity-40 cursor-not-allowed"
-                  }`}
+                    }`}
                 >
                   <span className="font-bold">{slot.time}</span>
                   <span className="text-[8px] uppercase tracking-tighter font-black">

@@ -95,7 +95,7 @@ export default function HeroSection() {
                   {t("title").split(" ")[0]}
                 </span>
                 <span className="block mt-2">
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-teal-400 to-emerald-400 drop-shadow-[0_0_15px_rgba(45,212,191,0.4)]">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-teal-400 to-yellow-800 drop-shadow-[0_0_15px_rgba(45,212,191,0.4)]">
                     1-on-1 Coaching
                   </span>
                 </span>
@@ -174,7 +174,7 @@ export default function HeroSection() {
                       Mismatched
                     </h3>
                     <p className="text-xs font-semibold text-teal-400">
-                      Radiant / Challenger
+                      Master / Challenger
                     </p>
                   </div>
                 </div>

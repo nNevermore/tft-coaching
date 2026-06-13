@@ -78,7 +78,7 @@ export const specialists = sqliteTable("specialist", {
   userId: text("user_id")
     .notNull()
     .references(() => users.id, { onDelete: "cascade" }),
-  rank: text("rank").notNull(), // e.g., "Radiant", "Challenger"
+  rank: text("rank").notNull(), // e.g., "Challenger"
   specialty: text("specialty").notNull(), // e.g., "Early Game & Econ"
   winRate: text("win_rate").notNull(),
   hourlyRate: integer("hourly_rate").notNull(), // Price in cents
