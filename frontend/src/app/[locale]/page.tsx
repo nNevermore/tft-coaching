@@ -63,7 +63,7 @@ export default function Home() {
 
               {/* Step 3 */}
               <div className="p-8 rounded-2xl border border-slate-800/60 bg-slate-900/40 hover:bg-slate-900/60 transition-colors space-y-4 shadow-lg shadow-slate-950/50">
-                <div className="w-12 h-12 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-400 font-bold font-mono">
+                <div className="w-12 h-12 rounded-full bg-teal-500/10 flex items-center justify-center text-teal-400 font-bold font-mono">
                   03
                 </div>
                 <h3 className="text-xl font-bold text-slate-200">

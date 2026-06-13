@@ -110,15 +110,15 @@ export default function Footer() {
           <div className="p-6 rounded-2xl bg-slate-900/40 border border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="flex items-center gap-4">
               <div className="px-3 py-1 rounded bg-slate-950 border border-white/10 text-[8px] font-black text-slate-500 uppercase tracking-widest">
-                Official Partner
+                Official
               </div>
-              <div className="text-[9px] font-bold text-slate-400 italic">
+              <div className="text-[11px] font-bold text-slate-400 italic">
                 {t("riotDisclaimer")}
               </div>
             </div>
-            <div className="text-[10px] font-black text-white uppercase italic tracking-tighter">
-              AUTHORIZED TACTICAL UNIT{" "}
-              <span className="text-teal-500">#0024</span>
+            <div className="text-[14px] font-black text-white uppercase italic tracking-tighter">
+              TFT-COACHING{" "}
+              <span className="text-teal-500">#2026</span>
             </div>
           </div>
 
@@ -126,9 +126,6 @@ export default function Footer() {
             <span>
               &copy; {new Date().getFullYear()} {t("logo")}. {t("rights")}
             </span>
-            <div className="flex items-center gap-6">
-              {/* Fake telemetry removed to maintain professional look */}
-            </div>
           </div>
         </div>
       </div>

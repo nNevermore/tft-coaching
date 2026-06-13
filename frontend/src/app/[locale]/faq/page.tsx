@@ -34,16 +34,14 @@ export default function FAQPage() {
   const filteredCategories = useMemo(() => {
     if (!search) return CATEGORIES;
     const s = search.toLowerCase();
-    return CATEGORIES
-      .map((cat) => ({
-        ...cat,
-        items: cat.items.filter(
-          (item) =>
-            t(item.q).toLowerCase().includes(s) ||
-            t(item.a).toLowerCase().includes(s),
-        ),
-      }))
-      .filter((cat) => cat.items.length > 0);
+    return CATEGORIES.map((cat) => ({
+      ...cat,
+      items: cat.items.filter(
+        (item) =>
+          t(item.q).toLowerCase().includes(s) ||
+          t(item.a).toLowerCase().includes(s),
+      ),
+    })).filter((cat) => cat.items.length > 0);
   }, [search, t]);
 
   return (
