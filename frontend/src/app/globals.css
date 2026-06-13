@@ -27,7 +27,11 @@
   /* Next.js & Font configurations */
   --background: var(--color-primary-base);
   --foreground: var(--color-text-bright);
-  --font-geist-sans: geomanist, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  
+  /* System font optimized for small text/readability, Geomanist for display/headers */
+  --font-system: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-display: geomanist, var(--font-system);
+  --font-geist-sans: var(--font-system);
   --font-geist-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
@@ -36,6 +40,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-display);
 
   /* Map core tailwind layout colors to our customizable variables */
   --color-slate-950: var(--color-primary-base);
@@ -80,4 +85,20 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+}
+
+/* Headings use the styled geomanist font for esports presentation, while body text uses system font */
+h1, h2, h3, h4, h5, h6, .font-display {
+  font-family: var(--font-display);
+}
+
+/* Global overrides to prevent unreadably small font sizes across the UI */
+.text-\[8px\] {
+  font-size: 11px !important;
+}
+.text-\[9px\] {
+  font-size: 12px !important;
+}
+.text-\[10px\] {
+  font-size: 12px !important;
 }
