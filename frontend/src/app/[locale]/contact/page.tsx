@@ -63,16 +63,10 @@ export default function ContactPage() {
               </span>
             </div>
             <h1 className="text-4xl sm:text-6xl font-black italic tracking-tighter text-white uppercase leading-none">
-              Secure
-              <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-teal-400">
-                Comm Link
-              </span>
+              {t("title")}
             </h1>
             <p className="text-sm text-slate-400 font-medium leading-relaxed">
-              Establishing encrypted connection to Command Base. Report
-              operational issues or tactical inquiries below. Signal encryption:
-              AES-256.
+              {t("subtitle")}
             </p>
           </div>
 
@@ -92,12 +86,8 @@ export default function ContactPage() {
                         <span className="text-4xl">📡</span>
                       </div>
                       <h2 className="text-2xl font-black text-white uppercase italic tracking-tighter">
-                        Transmission Successful
+                        {t("success")}
                       </h2>
-                      <p className="text-slate-400 text-xs font-mono uppercase tracking-widest leading-relaxed">
-                        Signal locked. Your data packet has been successfully
-                        routed to the tactical response unit.
-                      </p>
                       <button
                         onClick={() => setStatus("IDLE")}
                         className="text-[10px] font-black text-teal-400 uppercase tracking-widest border-b border-teal-500/30 hover:text-white transition-colors"
@@ -116,7 +106,7 @@ export default function ContactPage() {
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div className="space-y-2">
                           <label className="text-[9px] font-black text-slate-500 uppercase tracking-widest ml-1">
-                            Operator ID
+                            {t("name")}
                           </label>
                           <input
                             {...register("name")}
@@ -131,7 +121,7 @@ export default function ContactPage() {
                         </div>
                         <div className="space-y-2">
                           <label className="text-[9px] font-black text-slate-500 uppercase tracking-widest ml-1">
-                            Return Frequency (Email)
+                            {t("email")}
                           </label>
                           <input
                             {...register("email")}
@@ -149,7 +139,7 @@ export default function ContactPage() {
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div className="space-y-2">
                           <label className="text-[9px] font-black text-slate-500 uppercase tracking-widest ml-1">
-                            Combat Rank
+                            {t("rank")}
                           </label>
                           <input
                             {...register("rank")}
@@ -164,7 +154,7 @@ export default function ContactPage() {
                         </div>
                         <div className="space-y-2">
                           <label className="text-[9px] font-black text-slate-500 uppercase tracking-widest ml-1">
-                            Comms Protocol (Discord)
+                            {t("discord")}
                           </label>
                           <input
                             {...register("discord")}
@@ -181,7 +171,7 @@ export default function ContactPage() {
 
                       <div className="space-y-2">
                         <label className="text-[9px] font-black text-slate-500 uppercase tracking-widest ml-1">
-                          Transmission Content
+                          {t("message")}
                         </label>
                         <textarea
                           {...register("message")}
@@ -215,7 +205,7 @@ export default function ContactPage() {
                           ) : (
                             <>
                               <span className="text-xs font-black uppercase tracking-tighter text-slate-950 group-hover:text-white transition-colors">
-                                Authorize Transmission
+                                {t("submit")}
                               </span>
                               <svg
                                 className="w-4 h-4 text-slate-950 group-hover:text-white transition-colors"
@@ -248,17 +238,16 @@ export default function ContactPage() {
                     👾
                   </div>
                   <h3 className="text-lg font-black text-white uppercase italic tracking-tighter">
-                    Direct Frequency
+                    {t("infoTitle")}
                   </h3>
                   <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest leading-relaxed">
-                    For immediate tactical response, join the Global Discord Hub
-                    and ping the authorized coaching specialists.
+                    {t("infoDesc")}
                   </p>
                   <a
                     href="https://discord.gg/tftcoaching"
                     className="block w-full py-4 rounded-xl bg-[#5865F2] hover:bg-[#4752C4] text-center font-black text-[10px] text-white uppercase tracking-widest transition-transform hover:scale-105"
                   >
-                    Open Discord Channel
+                    {t("discordButton")}
                   </a>
                 </div>
 
@@ -266,7 +255,7 @@ export default function ContactPage() {
                   <div className="flex items-center justify-between">
                     <div className="space-y-1">
                       <div className="text-[9px] font-black text-slate-500 uppercase tracking-widest">
-                        Support Email
+                        {t("emailUs")}
                       </div>
                       <div className="text-xs font-black text-blue-400 uppercase italic">
                         HQ@TFT-COACHING.NET
@@ -274,10 +263,10 @@ export default function ContactPage() {
                     </div>
                     <div className="space-y-1 text-right">
                       <div className="text-[9px] font-black text-slate-500 uppercase tracking-widest">
-                        Base Hours
+                        {t("hours")}
                       </div>
                       <div className="text-xs font-black text-slate-300 uppercase italic">
-                        09:00 - 22:00 CET
+                        {t("hoursValue")}
                       </div>
                     </div>
                   </div>

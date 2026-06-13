@@ -8,33 +8,33 @@ import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "@/i18n/routing";
 
+const CATEGORIES = [
+  {
+    titleKey: "catGeneral",
+    items: [
+      { q: "q1", a: "a1" },
+      { q: "q4", a: "a4" },
+    ],
+  },
+  {
+    titleKey: "catPayments",
+    items: [
+      { q: "q3", a: "a3" },
+      { q: "q5", a: "a5" },
+    ],
+  },
+  { titleKey: "catSafety", items: [{ q: "q2", a: "a2" }] },
+];
+
 export default function FAQPage() {
   const t = useTranslations("FAQPage");
   const [search, setSearch] = useState("");
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
-  const categories = [
-    {
-      titleKey: "catGeneral",
-      items: [
-        { q: "q1", a: "a1" },
-        { q: "q4", a: "a4" },
-      ],
-    },
-    {
-      titleKey: "catPayments",
-      items: [
-        { q: "q3", a: "a3" },
-        { q: "q5", a: "a5" },
-      ],
-    },
-    { titleKey: "catSafety", items: [{ q: "q2", a: "a2" }] },
-  ];
-
   const filteredCategories = useMemo(() => {
-    if (!search) return categories;
+    if (!search) return CATEGORIES;
     const s = search.toLowerCase();
-    return categories
+    return CATEGORIES
       .map((cat) => ({
         ...cat,
         items: cat.items.filter(
@@ -66,15 +66,10 @@ export default function FAQPage() {
                 </span>
               </div>
               <h1 className="text-4xl sm:text-6xl font-black italic tracking-tighter text-white uppercase leading-none">
-                Mission
-                <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-teal-400">
-                  Briefing Hub
-                </span>
+                {t("title")}
               </h1>
               <p className="max-w-xl text-sm text-slate-400 font-medium leading-relaxed">
-                Authorized tactical repository. Access encrypted FAQs and
-                operational protocols to optimize your training deployment.
+                {t("subtitle")}
               </p>
             </div>
 

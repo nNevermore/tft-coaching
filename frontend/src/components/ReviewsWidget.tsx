@@ -131,15 +131,10 @@ export default function ReviewsWidget() {
             Trusted by 500+ Players
           </div>
           <h2 className="text-4xl font-black italic tracking-tighter text-white uppercase leading-none">
-            Operation
-            <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-500">
-              Wall of Fame
-            </span>
+            {t("reviewsTitle")}
           </h2>
           <p className="text-slate-400 text-sm font-medium leading-relaxed">
-            Real combat reports from players who authorized tactical
-            intervention and secured legendary status.
+            {t("reviewsSubtitle")}
           </p>
         </div>
       </div>

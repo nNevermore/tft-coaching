@@ -22,9 +22,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-xs font-medium leading-relaxed max-w-xs text-slate-500">
-              Authorized tactical training unit for elite competitive players.
-              We deliver precision intelligence to optimize your early-game
-              economy and late-game positioning.
+              {t("description")}
             </p>
             <div className="flex items-center gap-4">
               {/* Dummy social links with technical hover */}
@@ -44,7 +42,7 @@ export default function Footer() {
           <div className="md:col-span-8 grid grid-cols-2 gap-12">
             <div className="space-y-6">
               <h3 className="text-[10px] font-black uppercase tracking-[0.4em] text-white italic">
-                Main Sector
+                {t("links")}
               </h3>
               <ul className="space-y-4 text-[10px] font-black uppercase tracking-widest">
                 <li>
@@ -52,7 +50,7 @@ export default function Footer() {
                     href="/"
                     className="hover:text-teal-400 transition-colors"
                   >
-                    Tactical Home
+                    {t("home")}
                   </Link>
                 </li>
                 <li>
@@ -60,7 +58,7 @@ export default function Footer() {
                     href="/faq"
                     className="hover:text-teal-400 transition-colors"
                   >
-                    Mission Briefs (FAQ)
+                    {t("faq")}
                   </Link>
                 </li>
                 <li>
@@ -68,14 +66,14 @@ export default function Footer() {
                     href="/contact"
                     className="hover:text-teal-400 transition-colors"
                   >
-                    Open Frequency
+                    {t("contact")}
                   </Link>
                 </li>
               </ul>
             </div>
             <div className="space-y-6">
               <h3 className="text-[10px] font-black uppercase tracking-[0.4em] text-white italic">
-                Legal Protocols
+                {t("legal")}
               </h3>
               <ul className="space-y-4 text-[10px] font-black uppercase tracking-widest">
                 <li>
@@ -83,7 +81,7 @@ export default function Footer() {
                     href="/terms"
                     className="hover:text-teal-400 transition-colors"
                   >
-                    Rules of Engagement
+                    {t("terms")}
                   </Link>
                 </li>
                 <li>
@@ -91,7 +89,7 @@ export default function Footer() {
                     href="/privacy"
                     className="hover:text-teal-400 transition-colors"
                   >
-                    Encryption Privacy
+                    {t("privacy")}
                   </Link>
                 </li>
                 <li>
@@ -99,7 +97,7 @@ export default function Footer() {
                     href="/cookies"
                     className="hover:text-teal-400 transition-colors"
                   >
-                    Tracking Data
+                    Cookies
                   </Link>
                 </li>
               </ul>
@@ -115,8 +113,7 @@ export default function Footer() {
                 Official Partner
               </div>
               <div className="text-[9px] font-bold text-slate-400 italic">
-                TFT-Coaching is an independent deployment unit, not affiliated
-                with Riot Games.
+                {t("riotDisclaimer")}
               </div>
             </div>
             <div className="text-[10px] font-black text-white uppercase italic tracking-tighter">
@@ -127,7 +124,7 @@ export default function Footer() {
 
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-[9px] font-black uppercase tracking-[0.2em] text-slate-600">
             <span>
-              &copy; {new Date().getFullYear()} TFT-COACHING GLOBAL OPERATIONS
+              &copy; {new Date().getFullYear()} {t("logo")}. {t("rights")}
             </span>
             <div className="flex items-center gap-6">
               {/* Fake telemetry removed to maintain professional look */}

@@ -63,13 +63,10 @@ export default function middleware(req: NextRequest, event: NextFetchEvent) {
 }
 
 export const config = {
-  // Match both internationalized paths and dashboard paths
-  matcher: [
-    // Next-intl matchers
-    "/",
-    "/(pl|en)/:path*",
-    // Dashboard matchers (including optional locale prefixes)
-    "/dashboard/:path*",
-    "/(pl|en)/dashboard/:path*",
-  ],
+  // Match all pathnames except for the ones starting with:
+  // - api (API routes)
+  // - _next (Next.js internals)
+  // - _vercel (Vercel internals)
+  // - static files (e.g. /favicon.ico, /images, etc.)
+  matcher: ["/((?!api|_next|_vercel|.*\\..*).*)"],
 };

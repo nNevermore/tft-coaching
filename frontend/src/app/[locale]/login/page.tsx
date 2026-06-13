@@ -155,8 +155,8 @@ export default function LoginPage() {
               {/* Separator */}
               <div className="relative flex items-center justify-center">
                 <div className="w-full border-t border-white/5"></div>
-                <div className="absolute px-4 bg-slate-900/10 text-[9px] font-black text-slate-600 uppercase tracking-[0.3em] backdrop-blur-md">
-                  Testing Protocal
+                <div className="absolute px-4 bg-slate-950 text-[9px] font-black text-slate-500 uppercase tracking-[0.3em] backdrop-blur-md">
+                  {t("demoHeader")}
                 </div>
               </div>
 
@@ -208,8 +208,6 @@ export default function LoginPage() {
               </div>
             </div>
           )}
-
-
         </div>
 
         {/* Support Link */}
