@@ -65,7 +65,7 @@ graph TD
 Jakość kodu i bezpieczeństwo są automatycznie weryfikowane przed każdym wdrożeniem produkcyjnym:
 
 - **Strict TypeScript:** Wyłączony typ `any` (`@typescript-eslint/no-explicit-any`), silne typowanie propsów, odpowiedzi z API oraz walidacja formularzy za pomocą biblioteki **Zod**.
-- **Wydajne Lintowanie:** Zastosowanie **Ultracite** jako szybkiej nakładki lintera (wykorzystującej m.in. **Oxlint** w technologii Rust) oraz **Prettier** i **Stylelint** do spójnego formatowania.
+- **Wydajne Lintowanie:** Zastosowanie **Ultracite** jako szybkiej nakładki lintera (wykorzystującej m.in. **Oxlint** w technologii Rust) do automatycznego formatowania i sprawdzania jakości kodu.
 - **Analiza zależności (Knip):** Narzędzie **Knip** kontroluje i eliminuje nieużywany kod, martwe eksporty oraz zbędne pakiety `npm`.
 - **Walidacja i18n:** Narzędzie **i18n-check** zapewnia spójność struktury tłumaczeń języka polskiego i angielskiego.
 - **CI/CD:** Skonfigurowane potoki GitHub Actions wdrożenia produkcyjnego (zero-downtime deploy backendu na serwer VPS Intel).

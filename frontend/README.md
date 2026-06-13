@@ -49,7 +49,7 @@ W projekcie stosujemy automatyczne polecenia sprawdzające, które weryfikują j
 - **`npm run check:types`**: Uruchamia kompilator TypeScript (`tsc --noEmit --pretty`) w celu wykrycia błędów typowania.
 - **`npm run check:i18n`**: Korzysta z **i18n-check** do statycznej analizy plików tłumaczeń, wykrywając brakujące lub nieużywane klucze w językach PL/EN.
 - **`npm run check:deps`**: Wykorzystuje **Knip** do automatycznego wyszukiwania martwego kodu, nieużywanych eksportów oraz nadmiarowych zależności `npm`.
-- **`npm run lint:fix`**: Szybki linter oparty o **Ultracite** (wykorzystujący Rustowy **Oxlint** oraz **ESLint 9** / **Prettier** / **Stylelint**) do automatycznego formatowania i poprawy struktury kodu.
+- **`npm run lint:fix`**: Szybki linter oparty o **Ultracite** (wykorzystujący pod maską Rustowy **Oxlint** oraz **ESLint 9**) do automatycznego formatowania i poprawy struktury kodu.
 - **`npm run build`**: Kompiluje produkcyjnie projekt, sprawdzając poprawność wszystkich tras dynamicznych oraz optymalizację obrazów/kodów.
 
 ---
