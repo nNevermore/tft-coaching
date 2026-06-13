@@ -17,9 +17,9 @@ export default async function DashboardLayout({
   }
 
   const user = session.user;
-  const role = (user as any).role || "user";
-  const name = user?.name || "Użytkownik";
-  const riotId = (user as any).riotId;
+  const role = user.role || "user";
+  const name = user.name || "Użytkownik";
+  const riotId = user.riotId;
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col md:flex-row font-[family-name:var(--font-geist-sans)] selection:bg-teal-500/30">

@@ -34,7 +34,7 @@ export async function generateMetadata({
     openGraph: {
       title: "TFT-Coaching | Elite Tactical Training",
       description:
-        "Optimize your early-game economy and late-game positioning with Radiant-tier specialists.",
+        "Optimize your early-game economy and late-game positioning with Challenger-tier specialists.",
       url: "https://tft-coaching.net",
       siteName: "TFT-Coaching",
       images: [
@@ -68,7 +68,7 @@ export default async function RootLayout({
 }>) {
   const { locale } = await params;
 
-  if (!routing.locales.includes(locale as any)) {
+  if (!routing.locales.includes(locale as typeof routing.locales[number])) {
     notFound();
   }
 

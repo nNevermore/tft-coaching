@@ -71,7 +71,7 @@ export default function MissionLogs({ isSuccess }: { isSuccess: boolean }) {
   useEffect(() => {
     if (!echo || !session?.user) return;
 
-    const userId = (session.user as any).id;
+    const userId = session.user.id;
     const channelName = `missions.${userId}`;
 
     // Listen for tactical updates

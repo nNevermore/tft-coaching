@@ -63,7 +63,7 @@ export default function SidebarNav({ role }: { role: string }) {
           return (
             <Link
               key={link.href}
-              href={link.href as any}
+              href={link.href as Parameters<typeof Link>[0]["href"]}
               className={`group relative flex items-center gap-3 px-5 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all duration-300 overflow-hidden ${
                 isActive
                   ? "text-white bg-white/5 shadow-inner"

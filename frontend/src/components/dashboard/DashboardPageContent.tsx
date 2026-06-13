@@ -115,7 +115,7 @@ export default function DashboardPageContent() {
   const t = useTranslations("Dashboard");
 
   const user = session?.user;
-  const role = (user as any)?.role || "user";
+  const role = user?.role || "user";
   const name = user?.name || "Użytkownik";
 
   // --- Tactical Intel State ---
@@ -123,7 +123,7 @@ export default function DashboardPageContent() {
   const [isLoadingIntel, setIsLoadingIntel] = useState(false);
 
   useEffect(() => {
-    if (role === "user" && (user as any)?.riotId) {
+    if (role === "user" && user?.riotId) {
       const loadIntel = async () => {
         setIsLoadingIntel(true);
         const res = await fetchTacticalIntel();
@@ -193,7 +193,7 @@ export default function DashboardPageContent() {
               </h2>
               <p className="max-w-xl text-sm text-slate-400 font-medium leading-relaxed">
                 Tactical analysis suggests your early game economy is
-                underperforming. Initiate a session with a Radiant-tier coach to
+                underperforming. Initiate a session with a Challenger-tier coach to
                 stabilize your mid-game transitions.
               </p>
               <div className="pt-4 flex flex-wrap gap-4">

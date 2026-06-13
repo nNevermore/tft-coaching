@@ -32,7 +32,7 @@ export async function fetchTacticalIntel(): Promise<
       return { error: "UNAUTHORIZED_ACCESS" };
     }
 
-    const riotId = (session.user as any).riotId;
+    const riotId = session.user.riotId;
     if (!riotId) {
       return { error: "NO_RIOT_ID_LINKED" };
     }
@@ -56,7 +56,9 @@ export async function fetchTacticalIntel(): Promise<
         const errData = await response.json().catch(() => ({}));
         return { error: errData.error || "SIGNAL_LOST_FROM_COMMAND" };
       }
-      console.warn("Backend returned error status. Falling back to mock tactical intel data.");
+      console.warn(
+        "Backend returned error status. Falling back to mock tactical intel data.",
+      );
       return getMockTacticalIntel();
     }
 
@@ -67,7 +69,10 @@ export async function fetchTacticalIntel(): Promise<
       console.error("Failed to fetch Tactical Intel:", error);
       return { error: "INTERNAL_SYSTEM_FAILURE" };
     }
-    console.warn("Failed to fetch Tactical Intel. Falling back to mock data.", error);
+    console.warn(
+      "Failed to fetch Tactical Intel. Falling back to mock data.",
+      error,
+    );
     return getMockTacticalIntel();
   }
 }

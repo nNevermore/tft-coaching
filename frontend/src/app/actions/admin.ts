@@ -9,7 +9,7 @@ import { revalidatePath } from "next/cache";
 
 export async function getAdminData() {
   const session = await getServerSession(authOptions);
-  if (!session || (session.user as any).role !== "admin") {
+  if (!session || session.user.role !== "admin") {
     throw new Error("ACCESS_DENIED");
   }
 
@@ -37,7 +37,10 @@ export async function getAdminData() {
       })
       .from(missions);
 
-    const yieldSum = totalYield.reduce((acc, curr) => acc + (curr.total || 0), 0);
+    const yieldSum = totalYield.reduce(
+      (acc, curr) => acc + (curr.total || 0),
+      0,
+    );
 
     return {
       specialists: allSpecialists,
@@ -48,7 +51,10 @@ export async function getAdminData() {
     if (process.env.NODE_ENV === "production") {
       throw error;
     }
-    console.warn("Database query failed. Falling back to mock admin data.", error);
+    console.warn(
+      "Database query failed. Falling back to mock admin data.",
+      error,
+    );
     return {
       specialists: [
         {
@@ -80,7 +86,7 @@ export async function getAdminData() {
           updatedAt: new Date(),
         },
       ],
-      yield: 120.00,
+      yield: 120.0,
     };
   }
 }
@@ -91,7 +97,7 @@ export async function updateSpecialistStatus(
 ) {
   try {
     const session = await getServerSession(authOptions);
-    if (!session || (session.user as any).role !== "admin")
+    if (!session || session.user.role !== "admin")
       return { error: "UNAUTHORIZED" };
 
     await db.update(specialists).set({ status }).where(eq(specialists.id, id));

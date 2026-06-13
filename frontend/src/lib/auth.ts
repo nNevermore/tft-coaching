@@ -5,7 +5,7 @@ import { db } from "@/db";
 import { env } from "@/env";
 
 export const authOptions: NextAuthOptions = {
-  adapter: DrizzleAdapter(db) as any,
+  adapter: DrizzleAdapter(db) as NextAuthOptions["adapter"],
   session: {
     strategy: "jwt", // Required for Credentials provider and optimal for edge routing
   },
@@ -93,16 +93,16 @@ export const authOptions: NextAuthOptions = {
     async jwt({ token, user }) {
       if (user) {
         token.id = user.id;
-        token.role = (user as any).role || "user";
-        token.riotId = (user as any).riotId || null;
+        token.role = user.role || "user";
+        token.riotId = user.riotId || null;
       }
       return token;
     },
     async session({ session, token }) {
       if (session.user) {
-        (session.user as any).id = token.id;
-        (session.user as any).role = token.role;
-        (session.user as any).riotId = token.riotId;
+        session.user.id = token.id || "";
+        session.user.role = token.role || "user";
+        session.user.riotId = token.riotId || null;
       }
       return session;
     },

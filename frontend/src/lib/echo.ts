@@ -4,7 +4,7 @@ import { env } from "@/env";
 
 // Ensure Pusher is globally available for Echo
 if (typeof window !== "undefined") {
-  (window as any).Pusher = Pusher;
+  window.Pusher = Pusher;
 }
 
 /**
@@ -28,9 +28,9 @@ export const echo =
         forceTLS: env.NEXT_PUBLIC_REVERB_SCHEME === "https",
         enabledTransports: ["ws", "wss"],
         // Authentication for private channels
-        authorizer: (channel: any) => {
+        authorizer: (channel) => {
           return {
-            authorize: (socketId: string, callback: Function) => {
+            authorize: (socketId, callback) => {
               // We proxy the auth request through our local Next.js API to hide Laravel URL and inject session
               fetch("/api/proxy/broadcasting/auth", {
                 method: "POST",
@@ -44,10 +44,10 @@ export const echo =
               })
                 .then((response) => response.json())
                 .then((data) => {
-                  callback(false, data);
+                  callback(null, data);
                 })
                 .catch((error) => {
-                  callback(true, error);
+                  callback(error instanceof Error ? error : new Error(String(error)), null);
                 });
             },
           };

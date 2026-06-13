@@ -30,7 +30,7 @@ export async function POST(request: Request) {
         Accept: "application/json",
         "Content-Type": "application/json",
         // Here we could inject a custom header that Laravel middleware validates
-        "X-App-User-Id": (session.user as any).id,
+        "X-App-User-Id": session.user.id,
       },
       body: JSON.stringify(body),
     });
