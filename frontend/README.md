@@ -19,20 +19,25 @@ Aplikacja kliencka platformy **TFT-Coaching**, zbudowana przy użyciu najnowszyc
 ## 🚀 Uruchomienie Deweloperskie
 
 ### 1. Instalacja zależności
+
 ```bash
 npm install
 ```
 
 ### 2. Konfiguracja zmiennych środowiskowych
+
 Skopiuj szablon zmiennych środowiskowych i uzupełnij klucze:
+
 ```bash
 cp .env.example .env
 ```
 
 ### 3. Uruchomienie serwera deweloperskiego
+
 ```bash
 npm run dev
 ```
+
 Aplikacja będzie dostępna pod adresem: `http://localhost:3000`.
 
 ---
@@ -52,5 +57,6 @@ W projekcie stosujemy automatyczne polecenia sprawdzające, które weryfikują j
 ## 🧪 Testy
 
 Aplikacja ma skonfigurowane środowisko testowe dla testów jednostkowych i e2e:
+
 - **Testy jednostkowe/integracyjne:** [Vitest](https://vitest.dev) (`npm run test`).
 - **Testy E2E (End-to-End):** [Playwright](https://playwright.dev) (`npm run test:e2e`).
