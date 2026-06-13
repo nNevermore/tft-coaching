@@ -13,6 +13,10 @@ export const env = createEnv({
   },
   client: {
     NEXT_PUBLIC_APP_URL: z.string().url().optional(),
+    NEXT_PUBLIC_REVERB_APP_KEY: z.string().min(1).optional(),
+    NEXT_PUBLIC_REVERB_HOST: z.string().min(1).optional(),
+    NEXT_PUBLIC_REVERB_PORT: z.string().min(1).optional(),
+    NEXT_PUBLIC_REVERB_SCHEME: z.enum(["http", "https"]).default("https"),
   },
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
@@ -24,6 +28,10 @@ export const env = createEnv({
     NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
     BACKEND_API_URL: process.env.BACKEND_API_URL,
     NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
+    NEXT_PUBLIC_REVERB_APP_KEY: process.env.NEXT_PUBLIC_REVERB_APP_KEY,
+    NEXT_PUBLIC_REVERB_HOST: process.env.NEXT_PUBLIC_REVERB_HOST,
+    NEXT_PUBLIC_REVERB_PORT: process.env.NEXT_PUBLIC_REVERB_PORT,
+    NEXT_PUBLIC_REVERB_SCHEME: process.env.NEXT_PUBLIC_REVERB_SCHEME,
   },
   skipValidation: !!process.env.SKIP_ENV_VALIDATION,
   emptyStringAsUndefined: true,
