@@ -6,6 +6,8 @@ import {
 } from "drizzle-orm/sqlite-core";
 import type { AdapterAccount } from "next-auth/adapters";
 
+// --- CORE IDENTITY ---
+
 export const users = sqliteTable("user", {
   id: text("id")
     .primaryKey()
@@ -14,8 +16,13 @@ export const users = sqliteTable("user", {
   email: text("email").unique(),
   emailVerified: integer("emailVerified", { mode: "timestamp_ms" }),
   image: text("image"),
-  role: text("role", { enum: ["user", "coach", "admin"] }).default("user"),
+  role: text("role", { enum: ["user", "coach", "admin"] })
+    .default("user")
+    .notNull(),
   riotId: text("riotId"), // Riot ID (e.g., "PlayerOne#EUW")
+  createdAt: integer("created_at", { mode: "timestamp" })
+    .$defaultFn(() => new Date())
+    .notNull(),
 });
 
 export const accounts = sqliteTable(
@@ -62,38 +69,81 @@ export const verificationTokens = sqliteTable(
   }),
 );
 
-// Coaching specific tables
-export const coachingPackages = sqliteTable("coaching_package", {
-  id: text("id")
-    .primaryKey()
-    .$defaultFn(() => crypto.randomUUID()),
-  title: text("title").notNull(),
-  description: text("description").notNull(),
-  price: integer("price").notNull(), // Price in cents
-  durationMinutes: integer("duration_minutes").notNull(),
-  type: text("type", { enum: ["live", "vod", "session"] }).notNull(),
-  isActive: integer("is_active", { mode: "boolean" }).default(true),
-});
+// --- TACTICAL OPERATIONS MODULE ---
 
-export const bookings = sqliteTable("booking", {
+export const specialists = sqliteTable("specialist", {
   id: text("id")
     .primaryKey()
     .$defaultFn(() => crypto.randomUUID()),
   userId: text("user_id")
     .notNull()
     .references(() => users.id, { onDelete: "cascade" }),
-  packageId: text("package_id")
+  rank: text("rank").notNull(), // e.g., "Radiant", "Challenger"
+  specialty: text("specialty").notNull(), // e.g., "Early Game & Econ"
+  winRate: text("win_rate").notNull(),
+  hourlyRate: integer("hourly_rate").notNull(), // Price in cents
+  vodRate: integer("vod_rate").notNull(), // Price in cents
+  status: text("status", { enum: ["ONLINE", "OFFLINE", "IN_COMBAT"] })
+    .default("OFFLINE")
+    .notNull(),
+});
+
+export const missions = sqliteTable("mission", {
+  id: text("id")
+    .primaryKey()
+    .$defaultFn(() => crypto.randomUUID()),
+  studentId: text("student_id")
     .notNull()
-    .references(() => coachingPackages.id),
+    .references(() => users.id, { onDelete: "cascade" }),
+  specialistId: text("specialist_id").references(() => specialists.id, {
+    onDelete: "set null",
+  }), // Can be null if awaiting assignment
+  type: text("type", { enum: ["LIVE", "VOD"] }).notNull(),
   status: text("status", {
-    enum: ["pending", "confirmed", "completed", "cancelled"],
+    enum: [
+      "AWAITING_PAYMENT",
+      "PREPARING",
+      "IN_PROGRESS",
+      "ACCOMPLISHED",
+      "ABORTED",
+    ],
   })
-    .default("pending")
+    .default("AWAITING_PAYMENT")
     .notNull(),
   scheduledAt: integer("scheduled_at", { mode: "timestamp" }),
-  discordUsername: text("discord_username"),
-  summonerName: text("summoner_name"),
-  createdAt: integer("created_at", { mode: "timestamp" }).$defaultFn(
-    () => new Date(),
-  ),
+  stripeTransactionId: text("stripe_transaction_id"),
+  amountPaid: integer("amount_paid"), // Price in cents
+  createdAt: integer("created_at", { mode: "timestamp" })
+    .$defaultFn(() => new Date())
+    .notNull(),
+  updatedAt: integer("updated_at", { mode: "timestamp" })
+    .$defaultFn(() => new Date())
+    .notNull(),
+});
+
+export const intelReports = sqliteTable("intel_report", {
+  id: text("id")
+    .primaryKey()
+    .$defaultFn(() => crypto.randomUUID()),
+  missionId: text("mission_id")
+    .notNull()
+    .references(() => missions.id, { onDelete: "cascade" }),
+  summary: text("summary").notNull(),
+  compTags: text("comp_tags"), // JSON array string
+  vodUrl: text("vod_url"),
+  createdAt: integer("created_at", { mode: "timestamp" })
+    .$defaultFn(() => new Date())
+    .notNull(),
+});
+
+export const availability = sqliteTable("availability", {
+  id: text("id")
+    .primaryKey()
+    .$defaultFn(() => crypto.randomUUID()),
+  specialistId: text("specialist_id")
+    .notNull()
+    .references(() => specialists.id, { onDelete: "cascade" }),
+  startTime: integer("start_time", { mode: "timestamp" }).notNull(),
+  endTime: integer("end_time", { mode: "timestamp" }).notNull(),
+  isBooked: integer("is_booked", { mode: "boolean" }).default(false).notNull(),
 });
