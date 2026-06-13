@@ -52,7 +52,7 @@
   --color-slate-200: var(--color-text-muted);
   --color-slate-100: var(--color-text-bright);
 
-  /* Map accent colors (blue/teal) to our gold accent color (#fca311) */
+  /* Map accent colors (blue/teal/purple) to our gold accent color (#fca311) */
   --color-blue-400: var(--color-accent);
   --color-blue-500: var(--color-accent);
   --color-blue-600: var(--color-accent);
@@ -62,6 +62,11 @@
   --color-teal-500: var(--color-accent);
   --color-teal-600: var(--color-accent);
   --color-teal-700: var(--color-accent);
+
+  --color-purple-400: var(--color-accent);
+  --color-purple-500: var(--color-accent);
+  --color-purple-600: var(--color-accent);
+  --color-purple-700: var(--color-accent);
 }
 
 @media (prefers-color-scheme: dark) {

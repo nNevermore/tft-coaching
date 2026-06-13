@@ -163,9 +163,9 @@ export default function ServicesSection() {
           {/* Card 3: Community / Discord */}
           <SpotlightCard className="flex flex-col justify-between h-full min-h-[380px]">
             <div className="space-y-6 relative z-10">
-              <div className="w-14 h-14 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center shadow-inner group-hover:scale-110 transition-transform duration-500">
+              <div className="w-14 h-14 rounded-xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center shadow-inner group-hover:scale-110 transition-transform duration-500">
                 <svg
-                  className="w-6 h-6 text-purple-400"
+                  className="w-6 h-6 text-teal-400"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -199,7 +199,7 @@ export default function ServicesSection() {
               </div>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 text-sm font-extrabold text-purple-400 hover:text-purple-300 transition-colors group/link"
+                className="inline-flex items-center gap-2 text-sm font-extrabold text-teal-400 hover:text-teal-300 transition-colors group/link"
               >
                 Join Server
                 <span className="transform translate-x-0 group-hover/link:translate-x-1 transition-transform">

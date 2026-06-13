@@ -29,28 +29,28 @@ const MetricCard = ({
       bg: "bg-blue-500/10",
       border: "border-blue-500/20",
       glow: "shadow-blue-500/10",
-      stroke: "#60a5fa",
+      stroke: "#fca311",
     },
     teal: {
       text: "text-teal-400",
       bg: "bg-teal-500/10",
       border: "border-teal-500/20",
       glow: "shadow-teal-500/10",
-      stroke: "#2dd4bf",
+      stroke: "#fca311",
     },
     purple: {
       text: "text-purple-400",
       bg: "bg-purple-500/10",
       border: "border-purple-500/20",
       glow: "shadow-purple-500/10",
-      stroke: "#c084fc",
+      stroke: "#fca311",
     },
     emerald: {
       text: "text-emerald-400",
       bg: "bg-emerald-500/10",
       border: "border-emerald-500/20",
       glow: "shadow-emerald-500/10",
-      stroke: "#34d399",
+      stroke: "#fca311",
     },
   };
 
@@ -227,7 +227,7 @@ export default function DashboardPageContent() {
               title="Combat Rank"
               value={getRankDisplay()}
               subtitle={intel ? "Riot API Verified" : "Awaiting Verification"}
-              color="emerald"
+              color="blue"
               sparkline={[50, 55, 60, 65, 70, 75, 80]}
             />
             <MetricCard
@@ -257,7 +257,7 @@ export default function DashboardPageContent() {
               title="Combat Hours"
               value="0.0h"
               subtitle="Monthly Training"
-              color="purple"
+              color="blue"
             />
           </>
         )}
@@ -267,13 +267,13 @@ export default function DashboardPageContent() {
               title="Unit Count"
               value="1"
               subtitle="Active Specialists"
-              color="purple"
+              color="blue"
             />
             <MetricCard
               title="Stripe Comms"
               value="0"
               subtitle="Secure Transmissions"
-              color="emerald"
+              color="teal"
             />
             <MetricCard
               title="Global Yield"
