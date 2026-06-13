@@ -52,6 +52,10 @@ export async function fetchTacticalIntel(): Promise<
     );
 
     if (!response.ok) {
+      if (process.env.NODE_ENV === "production") {
+        const errData = await response.json().catch(() => ({}));
+        return { error: errData.error || "SIGNAL_LOST_FROM_COMMAND" };
+      }
       console.warn("Backend returned error status. Falling back to mock tactical intel data.");
       return getMockTacticalIntel();
     }
@@ -59,6 +63,10 @@ export async function fetchTacticalIntel(): Promise<
     const data = await response.json();
     return data as TacticalIntelResponse;
   } catch (error: any) {
+    if (process.env.NODE_ENV === "production") {
+      console.error("Failed to fetch Tactical Intel:", error);
+      return { error: "INTERNAL_SYSTEM_FAILURE" };
+    }
     console.warn("Failed to fetch Tactical Intel. Falling back to mock data.", error);
     return getMockTacticalIntel();
   }

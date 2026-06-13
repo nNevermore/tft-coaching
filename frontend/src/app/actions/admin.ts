@@ -45,6 +45,9 @@ export async function getAdminData() {
       yield: yieldSum / 100, // Convert cents to PLN
     };
   } catch (error) {
+    if (process.env.NODE_ENV === "production") {
+      throw error;
+    }
     console.warn("Database query failed. Falling back to mock admin data.", error);
     return {
       specialists: [
@@ -96,6 +99,9 @@ export async function updateSpecialistStatus(
     revalidatePath("/dashboard/admin/manage");
     return { success: true };
   } catch (error) {
+    if (process.env.NODE_ENV === "production") {
+      throw error;
+    }
     console.warn("Database offline. Simulating status update.");
     return { success: true };
   }

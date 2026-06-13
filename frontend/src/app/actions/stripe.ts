@@ -21,6 +21,9 @@ export async function createCheckoutSession(type: "live" | "vod") {
   const baseUrl = `${protocol}://${host}`;
 
   if (!env.STRIPE_SECRET_KEY) {
+    if (process.env.NODE_ENV === "production") {
+      throw new Error("Brak klucza konfiguracyjnego Stripe (STRIPE_SECRET_KEY).");
+    }
     console.warn("Brak STRIPE_SECRET_KEY. Uruchamiam proces płatności testowej (Mock Payment Mode).");
     return { url: `${baseUrl}/dashboard/lessons?success=true` };
   }

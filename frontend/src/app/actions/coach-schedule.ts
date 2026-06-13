@@ -63,6 +63,7 @@ export async function getCoachAvailability() {
     });
 
     if (!specialist) {
+      if (process.env.NODE_ENV === "production") return [];
       return getMockAvailability();
     }
 
@@ -70,6 +71,9 @@ export async function getCoachAvailability() {
       where: eq(availability.specialistId, specialist.id),
     });
   } catch (error) {
+    if (process.env.NODE_ENV === "production") {
+      throw error;
+    }
     console.warn("Database offline. Falling back to mock coach availability.");
     return getMockAvailability();
   }

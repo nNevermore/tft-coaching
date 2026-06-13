@@ -85,14 +85,33 @@ export default async function RootLayout({
 
   const messages = await getMessages();
 
+  const isDev = process.env.NODE_ENV !== "production";
+  const isDemoMode =
+    isDev &&
+    (!process.env.TURSO_DB_URL ||
+      !process.env.TURSO_DB_TOKEN ||
+      !process.env.STRIPE_SECRET_KEY);
+
   return (
     <html
       lang={locale}
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className={`min-h-full flex flex-col ${isDemoMode ? "pb-12" : ""}`}>
         <NextIntlClientProvider messages={messages}>
-          <Providers>{children}</Providers>
+          <Providers>
+            {children}
+            {isDemoMode && (
+              <div className="fixed bottom-0 left-0 right-0 bg-slate-950/90 backdrop-blur-md border-t border-amber-500/30 text-amber-400 py-3.5 px-4 text-center text-[9px] font-black uppercase tracking-[0.2em] z-50 flex items-center justify-center gap-2 select-none shadow-[0_-8px_32px_rgba(0,0,0,0.5)]">
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse shrink-0"></span>
+                <span>
+                  {locale === "pl"
+                    ? "Ostrzeżenie Taktyczne: Aktywny Tryb Demonstracyjny / Używanie Symulowanych Danych i Płatności (Brak Konfiguracji .env)"
+                    : "Tactical Warning: Sandbox Demo Mode Active / Using Simulated Mock Intelligence & Payments (No API Keys Configured)"}
+                </span>
+              </div>
+            )}
+          </Providers>
         </NextIntlClientProvider>
       </body>
     </html>
