@@ -117,8 +117,7 @@ export default function Footer() {
               </div>
             </div>
             <div className="text-[14px] font-black text-white uppercase italic tracking-tighter">
-              TFT-COACHING{" "}
-              <span className="text-teal-500">#2026</span>
+              TFT-COACHING <span className="text-teal-500">#2026</span>
             </div>
           </div>
 

@@ -47,7 +47,10 @@ export const echo =
                   callback(null, data);
                 })
                 .catch((error) => {
-                  callback(error instanceof Error ? error : new Error(String(error)), null);
+                  callback(
+                    error instanceof Error ? error : new Error(String(error)),
+                    null,
+                  );
                 });
             },
           };

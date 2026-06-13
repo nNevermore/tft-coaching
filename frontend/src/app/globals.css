@@ -5,8 +5,9 @@
   font-family: geomanist;
   font-style: normal;
   font-weight: 300;
-  src: url(../assets/fonts/geomanist/geomanist-light.woff) format("woff"),
-       url(../assets/fonts/geomanist/geomanist-light.woff2) format("woff2");
+  src:
+    url(../assets/fonts/geomanist/geomanist-light.woff) format("woff"),
+    url(../assets/fonts/geomanist/geomanist-light.woff2) format("woff2");
 }
 
 :root {
@@ -14,25 +15,29 @@
      CUSTOMIZABLE COLOR PALETTE
      Easily modify the project's color theme by changing these values.
      ========================================================================== */
-  --color-primary-base: #000000;       /* Base black background */
-  --color-primary-card: #14213d;       /* Dark navy for cards and panels */
-  --color-accent: #fca311;             /* Gold/orange for highlights and CTAs */
-  --color-text-muted: #e5e5e5;         /* Muted light gray for readability */
-  --color-text-bright: #ffffff;        /* Crisp white for headers and active text */
+  --color-primary-base: #000000; /* Base black background */
+  --color-primary-card: #14213d; /* Dark navy for cards and panels */
+  --color-accent: #fca311; /* Gold/orange for highlights and CTAs */
+  --color-text-muted: #e5e5e5; /* Muted light gray for readability */
+  --color-text-bright: #ffffff; /* Crisp white for headers and active text */
 
   /* Derived layout variables */
   --color-primary-card-hover: #1c2d52; /* Slightly lighter navy for hover states */
-  --color-primary-border: #23355c;     /* Subtle border color for components */
+  --color-primary-border: #23355c; /* Subtle border color for components */
 
   /* Next.js & Font configurations */
   --background: var(--color-primary-base);
   --foreground: var(--color-text-bright);
-  
+
   /* System font optimized for small text/readability, Geomanist for display/headers */
-  --font-system: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-system:
+    ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
   --font-display: geomanist, var(--font-system);
   --font-geist-sans: var(--font-system);
-  --font-geist-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-geist-mono:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
 }
 
 @theme inline {
@@ -62,7 +67,7 @@
   --color-blue-500: var(--color-accent);
   --color-blue-600: var(--color-accent);
   --color-blue-700: var(--color-accent);
-  
+
   --color-teal-400: var(--color-accent);
   --color-teal-500: var(--color-accent);
   --color-teal-600: var(--color-accent);
@@ -88,7 +93,13 @@ body {
 }
 
 /* Headings use the styled geomanist font for esports presentation, while body text uses system font */
-h1, h2, h3, h4, h5, h6, .font-display {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-display {
   font-family: var(--font-display);
 }
 

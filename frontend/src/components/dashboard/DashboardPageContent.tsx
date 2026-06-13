@@ -193,8 +193,8 @@ export default function DashboardPageContent() {
               </h2>
               <p className="max-w-xl text-sm text-slate-400 font-medium leading-relaxed">
                 Tactical analysis suggests your early game economy is
-                underperforming. Initiate a session with a Challenger-tier coach to
-                stabilize your mid-game transitions.
+                underperforming. Initiate a session with a Challenger-tier coach
+                to stabilize your mid-game transitions.
               </p>
               <div className="pt-4 flex flex-wrap gap-4">
                 <Link
