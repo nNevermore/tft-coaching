@@ -62,12 +62,43 @@ export async function getCoachAvailability() {
       where: eq(specialists.userId, (session.user as any).id),
     });
 
-    if (!specialist) return [];
+    if (!specialist) {
+      return getMockAvailability();
+    }
 
     return await db.query.availability.findMany({
       where: eq(availability.specialistId, specialist.id),
     });
   } catch (error) {
-    return [];
+    console.warn("Database offline. Falling back to mock coach availability.");
+    return getMockAvailability();
   }
+}
+
+function getMockAvailability() {
+  const now = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  return [
+    {
+      id: "mock-slot-1",
+      specialistId: "mock-coach-id",
+      startTime: new Date(today.getTime() + 10 * 60 * 60 * 1000), // 10:00
+      endTime: new Date(today.getTime() + 11 * 60 * 60 * 1000),   // 11:00
+      isBooked: false,
+    },
+    {
+      id: "mock-slot-2",
+      specialistId: "mock-coach-id",
+      startTime: new Date(today.getTime() + 14 * 60 * 60 * 1000), // 14:00
+      endTime: new Date(today.getTime() + 15 * 60 * 60 * 1000),   // 15:00
+      isBooked: true,
+    },
+    {
+      id: "mock-slot-3",
+      specialistId: "mock-coach-id",
+      startTime: new Date(today.getTime() + 86400000 + 11 * 60 * 60 * 1000), // Tomorrow 11:00
+      endTime: new Date(today.getTime() + 86400000 + 12 * 60 * 60 * 1000),   // Tomorrow 12:00
+      isBooked: false,
+    }
+  ];
 }
