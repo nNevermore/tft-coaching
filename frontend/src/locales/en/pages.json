@@ -114,5 +114,13 @@
     "cookiesTitle": "Cookies Policy",
     "cookiesSubtitle": "Learn how we use cookies and tracking technologies to enhance your experience.",
     "cookiesContent": "This Cookies Policy explains how TFT-Coaching uses cookies and similar technologies. 1. What are cookies: Cookies are small text files stored on your device when you visit a website. 2. How we use them: We use cookies to maintain your login sessions, remember language preferences, and analyze general traffic to improve performance. 3. Managing cookies: You can control or disable cookies through your browser settings, though some features of the site (like the login dashboard) may not function properly without them."
+  },
+  "NotFound": {
+    "title": "LOBBY NOT FOUND",
+    "subtitle": "TACTICAL ERROR 404",
+    "description": "The coordinates you requested do not exist in this lobby's grid. The portal has collapsed or you've wandered into the fog of war.",
+    "returnHome": "Return to Base",
+    "dashboard": "Tactical Dashboard",
+    "status": "STATUS: DISCONNECTED"
   }
 }

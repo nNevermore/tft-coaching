@@ -114,5 +114,13 @@
     "cookiesTitle": "Polityka Cookies",
     "cookiesSubtitle": "Dowiedz się, jak używamy plików cookies i technologii śledzących, aby usprawnić działanie platformy.",
     "cookiesContent": "Niniejsza Polityka Cookies wyjaśnia, w jaki sposób TFT-Coaching korzysta z plików cookies i podobnych technologii. 1. Czym są pliki cookies: Cookies to małe pliki tekstowe zapisywane na Twoim urządzeniu podczas wizyty na stronie. 2. Cel użycia: Używamy plików cookies w celu utrzymania sesji logowania, zapamiętania preferencji językowych oraz analizy ogólnego ruchu na stronie w celu optymalizacji wydajności. 3. Zarządzanie cookies: Możesz kontrolować lub zablokować pliki cookies w ustawieniach przeglądarki, jednak niektóre funkcje strony (np. panel użytkownika) mogą nie działać poprawnie bez ich akceptacji."
+  },
+  "NotFound": {
+    "title": "NIE ZNALEZIONO POCZEKALNI",
+    "subtitle": "BŁĄD TAKTYCZNY 404",
+    "description": "Współrzędne, których szukasz, nie istnieją na siatce tej poczekalni. Portal się zapadł lub wszedłeś w mgłę wojny.",
+    "returnHome": "Wróć do Bazy",
+    "dashboard": "Panel Taktyczny",
+    "status": "STATUS: ROZŁĄCZONO"
   }
 }

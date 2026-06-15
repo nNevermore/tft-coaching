@@ -98,6 +98,20 @@
       transform: translateX(0);
     }
   }
+
+  --animate-scan: scan 6s linear infinite;
+
+  @keyframes scan {
+    0% {
+      transform: translateY(-100%);
+    }
+    50% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(-100%);
+    }
+  }
 }
 
 @media (prefers-color-scheme: dark) {
