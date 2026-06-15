@@ -140,6 +140,7 @@ export default function FAQPage() {
                         >
                           <button
                             onClick={() => setExpandedId(isOpen ? null : id)}
+                            aria-expanded={isOpen}
                             className="w-full px-8 py-6 flex items-center justify-between text-left cursor-pointer focus:outline-none"
                           >
                             <span

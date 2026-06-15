@@ -103,7 +103,10 @@ async function AdminContent() {
                       <StatusIndicator status={unit.status} />
                     </td>
                     <td className="px-6 py-4 text-right">
-                      <button className="p-2 rounded-lg bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 transition-all">
+                      <button
+                        className="p-2 rounded-lg bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 transition-all"
+                        aria-label={`Manage specialist ${unit.name}`}
+                      >
                         <svg
                           className="w-4 h-4"
                           fill="none"

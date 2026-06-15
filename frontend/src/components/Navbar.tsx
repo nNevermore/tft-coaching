@@ -120,6 +120,7 @@ export default function Navbar() {
             <button
               onClick={toggleLocale}
               className="group flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/50 border border-slate-800 hover:border-teal-500/50 transition-all cursor-pointer"
+              aria-label={t("switchLocale")}
             >
               <span className="text-xs font-bold text-slate-500 group-hover:text-teal-400 uppercase">
                 {currentLocale}
@@ -145,6 +146,7 @@ export default function Navbar() {
                   onClick={() => signOut({ callbackUrl: "/" })}
                   className="p-2 rounded-full bg-red-500/5 border border-red-500/10 hover:bg-red-500/20 text-red-400 transition-all cursor-pointer"
                   title={t("logout")}
+                  aria-label={t("logout")}
                 >
                   <svg
                     className="w-4 h-4"
@@ -177,6 +179,7 @@ export default function Navbar() {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="p-2 text-slate-400 hover:text-white transition-colors cursor-pointer"
+              aria-label={isOpen ? t("closeMenu") : t("openMenu")}
             >
               <svg
                 className="w-6 h-6"

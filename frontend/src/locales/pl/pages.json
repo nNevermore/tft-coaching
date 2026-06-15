@@ -6,7 +6,10 @@
     "contact": "Kontakt",
     "login": "Zaloguj się",
     "dashboard": "Panel użytkownika",
-    "logout": "Wyloguj się"
+    "logout": "Wyloguj się",
+    "openMenu": "Otwórz menu nawigacji",
+    "closeMenu": "Zamknij menu nawigacji",
+    "switchLocale": "Zmień język na angielski"
   },
   "Footer": {
     "logo": "TFT Coaching",

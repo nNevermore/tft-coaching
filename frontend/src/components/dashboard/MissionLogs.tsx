@@ -241,7 +241,10 @@ export default function MissionLogs({ isSuccess }: { isSuccess: boolean }) {
                       Deployment Pending...
                     </div>
                   )}
-                  <button className="p-2.5 rounded-lg bg-white/5 border border-white/5 text-slate-500 hover:text-white hover:bg-white/10 transition-all">
+                  <button
+                    className="p-2.5 rounded-lg bg-white/5 border border-white/5 text-slate-500 hover:text-white hover:bg-white/10 transition-all"
+                    aria-label={`Options for mission ${mission.id}`}
+                  >
                     <svg
                       className="w-4 h-4"
                       fill="none"
