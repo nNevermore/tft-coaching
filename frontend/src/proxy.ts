@@ -5,7 +5,7 @@ import {
   NextResponse,
   NextRequest,
   NextFetchEvent,
-  NextMiddleware,
+  NextProxy,
 } from "next/server";
 
 const intlMiddleware = createMiddleware(routing);
@@ -56,7 +56,7 @@ export default function middleware(req: NextRequest, event: NextFetchEvent) {
 
   // Run authMiddleware for dashboard paths, otherwise run intlMiddleware
   if (normalizedPath.startsWith("/dashboard")) {
-    return (authMiddleware as NextMiddleware)(req, event);
+    return (authMiddleware as NextProxy)(req, event);
   }
 
   return intlMiddleware(req);
