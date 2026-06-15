@@ -68,5 +68,5 @@ export const config = {
   // - _next (Next.js internals)
   // - _vercel (Vercel internals)
   // - static files (e.g. /favicon.ico, /images, etc.)
-  matcher: ["/((?!api|_next|_vercel|^(?:en|pl)\\/?$|.*\\/(?:faq|terms|privacy|cookies|contact|blog)(?:\\/.*)?$|.*\\..*).*)"],
+  matcher: ["/((?!api|_next|_vercel|(?:en|pl)\\/?$|.*\\/(?:faq|terms|privacy|cookies|contact|blog)(?:\\/.*)?$|.*\\..*).*)"],
 };
