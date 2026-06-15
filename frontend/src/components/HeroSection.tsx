@@ -3,6 +3,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 // --- Magnetic Button Component ---
 const MagneticButton = ({
@@ -162,9 +163,12 @@ export default function HeroSection() {
               >
                 <div className="flex items-center gap-4">
                   <div className="relative">
-                    <img
+                    <Image
                       src="https://api.dicebear.com/7.x/avataaars/svg?seed=Challenger&backgroundColor=1e293b"
                       alt="Coach Avatar"
+                      width={56}
+                      height={56}
+                      unoptimized
                       className="w-14 h-14 rounded-full border-2 border-teal-500/50"
                     />
                     <div className="absolute bottom-0 right-0 w-4 h-4 bg-green-500 border-2 border-slate-900 rounded-full"></div>

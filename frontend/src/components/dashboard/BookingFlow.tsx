@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { createCheckoutSession } from "@/app/actions/stripe";
 import { Link } from "@/i18n/routing";
+import Image from "next/image";
 
 // --- Types ---
 type Step = "SERVICE" | "COACH" | "TIME" | "CONFIRM";
@@ -205,9 +206,12 @@ export default function BookingFlow() {
               >
                 <div className="flex gap-4 items-center">
                   <div className="relative">
-                    <img
+                    <Image
                       src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${coach.avatar}&backgroundColor=1e293b`}
                       alt={coach.name}
+                      width={64}
+                      height={64}
+                      unoptimized
                       className="w-16 h-16 rounded-2xl border-2 border-white/5"
                     />
                     <div className="absolute -bottom-1 -right-1 px-1.5 py-0.5 rounded bg-slate-950 border border-white/10 text-[8px] font-black text-teal-400">

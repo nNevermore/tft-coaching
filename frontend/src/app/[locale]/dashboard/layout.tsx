@@ -5,6 +5,7 @@ import { Link, usePathname } from "@/i18n/routing";
 import { SignOutButton } from "./SignOutButton";
 import SidebarNav from "@/components/dashboard/SidebarNav";
 import Logo from "@/components/Logo";
+import Image from "next/image";
 
 export default async function DashboardLayout({
   children,
@@ -47,9 +48,12 @@ export default async function DashboardLayout({
               <div className="relative p-5 rounded-2xl bg-slate-950/40 border border-white/5 backdrop-blur-md overflow-hidden">
                 <div className="flex items-center gap-3">
                   <div className="relative">
-                    <img
+                    <Image
                       src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${name}&backgroundColor=1e293b`}
                       alt="User Avatar"
+                      width={40}
+                      height={40}
+                      unoptimized
                       className="w-10 h-10 rounded-lg border border-white/10"
                     />
                     <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-teal-500 border-2 border-slate-950 rounded-full"></div>

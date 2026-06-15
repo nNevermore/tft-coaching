@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 interface LogoProps {
   size?: "sm" | "md";
@@ -23,10 +24,17 @@ export default function Logo({
     md: "border-slate-800",
   };
 
+  const dimensions = {
+    sm: 36,
+    md: 40,
+  };
+
   const imageElement = (
-    <img
+    <Image
       src="/icon.png"
       alt="TFT Coaching"
+      width={dimensions[size]}
+      height={dimensions[size]}
       className={`object-cover bg-slate-900 border ${sizeClasses[size]} ${borderClasses[size]} ${className}`}
     />
   );
