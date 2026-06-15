@@ -1,9 +1,10 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { redirect } from "next/navigation";
-import { Link, usePathname } from "@/i18n/routing";
+import { Link } from "@/i18n/routing";
 import { SignOutButton } from "./SignOutButton";
 import SidebarNav from "@/components/dashboard/SidebarNav";
+import DashboardProgressBar from "@/components/dashboard/DashboardProgressBar";
 import Logo from "@/components/Logo";
 import Image from "next/image";
 
@@ -25,6 +26,7 @@ export default async function DashboardLayout({
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col md:flex-row font-[family-name:var(--font-geist-sans)] selection:bg-teal-500/30">
+      <DashboardProgressBar />
       {/* Sidebar: Tactical Command Panel */}
       <aside className="w-full md:w-72 bg-slate-900/50 backdrop-blur-2xl border-b md:border-b-0 md:border-r border-white/5 flex flex-col justify-between shrink-0 relative z-30">
         {/* Top Branding & Profile */}
