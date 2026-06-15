@@ -125,11 +125,11 @@ export default function Navbar() {
               onClick={toggleLocale}
               className="group flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/50 border border-slate-800 hover:border-teal-500/50 transition-all cursor-pointer"
             >
-              <span className="text-[10px] font-black text-slate-500 group-hover:text-teal-400 uppercase">
+              <span className="text-xs font-bold text-slate-500 group-hover:text-teal-400 uppercase">
                 {currentLocale}
               </span>
               <div className="w-4 h-px bg-slate-700 group-hover:bg-teal-500/50 transition-colors"></div>
-              <span className="text-[10px] font-black text-slate-300 uppercase">
+              <span className="text-xs font-bold text-slate-300 uppercase">
                 {currentLocale === "en" ? "pl" : "en"}
               </span>
             </button>
@@ -140,7 +140,7 @@ export default function Navbar() {
               <div className="flex items-center gap-2">
                 <Link
                   href="/dashboard"
-                  className="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900 border border-slate-800 hover:border-slate-700 text-xs font-black text-slate-200 transition-all"
+                  className="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900 border border-slate-800 hover:border-slate-700 text-xs font-bold text-slate-200 transition-all"
                 >
                   <div className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse"></div>
                   {t("dashboard")}
@@ -168,7 +168,7 @@ export default function Navbar() {
             ) : (
               <Link
                 href="/login"
-                className="relative group overflow-hidden px-6 py-2 rounded-full bg-white text-slate-950 text-xs font-black uppercase tracking-tighter transition-transform hover:scale-105 active:scale-95"
+                className="relative group overflow-hidden px-6 py-2 rounded-full bg-white text-slate-950 text-xs font-bold uppercase tracking-wider transition-transform hover:scale-105 active:scale-95"
               >
                 <span className="relative z-10">{t("login")}</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-teal-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -222,7 +222,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className={`text-2xl font-black tracking-tighter ${pathname === link.href ? "text-teal-400" : "text-slate-500"}`}
+                className={`text-2xl font-bold tracking-tight ${pathname === link.href ? "text-teal-400" : "text-slate-500"}`}
               >
                 {link.name}
               </Link>
@@ -246,7 +246,7 @@ export default function Navbar() {
             ) : (
               <Link
                 href="/login"
-                className="w-full py-4 bg-white text-slate-950 rounded-xl text-center font-black"
+                className="w-full py-4 bg-white text-slate-950 rounded-xl text-center font-bold"
               >
                 GET STARTED
               </Link>

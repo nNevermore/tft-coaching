@@ -75,23 +75,23 @@ const ReviewCard = ({ review }: { review: Review }) => (
         </svg>
       ))}
     </div>
-    <p className="text-xs italic text-slate-300 leading-relaxed mb-6">
+    <p className="text-sm italic text-slate-300 leading-relaxed mb-6">
       &quot;{review.quote}&quot;
     </p>
 
     <div className="flex items-center gap-4 pt-4 border-t border-white/5">
-      <div className="w-10 h-10 rounded-full bg-slate-800 border border-white/10 flex items-center justify-center font-black text-white text-[10px] uppercase">
+      <div className="w-10 h-10 rounded-full bg-slate-800 border border-white/10 flex items-center justify-center font-bold text-white text-xs uppercase">
         {review.name.split(" ")[0][0]}
       </div>
       <div>
-        <h3 className="text-xs font-black text-white uppercase italic">
+        <h3 className="text-sm font-bold text-white uppercase italic">
           {review.name}
         </h3>
         <div className="flex items-center gap-2 mt-1">
-          <span className="text-[9px] text-slate-500 line-through font-bold uppercase">
+          <span className="text-xs text-slate-500 line-through font-bold uppercase">
             {review.rankFrom}
           </span>
-          <span className="text-[9px] font-black text-teal-400 uppercase tracking-tighter">
+          <span className="text-xs font-bold text-teal-400 uppercase tracking-wider">
             ➔ {review.rankTo}
           </span>
         </div>
@@ -127,10 +127,10 @@ export default function ReviewsWidget() {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-20 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-[10px] font-black text-teal-400 tracking-[0.2em] uppercase">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-xs font-bold text-teal-400 tracking-wider uppercase">
             Trusted by 500+ Players
           </div>
-          <h2 className="text-4xl font-black italic tracking-tighter text-white uppercase leading-none">
+          <h2 className="text-4xl font-extrabold italic tracking-tight text-white uppercase leading-none">
             {t("reviewsTitle")}
           </h2>
           <p className="text-slate-400 text-sm font-medium leading-relaxed">

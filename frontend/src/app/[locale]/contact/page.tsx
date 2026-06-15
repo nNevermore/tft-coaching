@@ -58,7 +58,7 @@ export default function ContactPage() {
           <div className="space-y-4 max-w-2xl">
             <div className="flex items-center gap-3">
               <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.6)]"></div>
-              <span className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em]">
+              <span className="text-xs font-bold text-blue-400 uppercase tracking-widest">
                 Communications / Open Frequency
               </span>
             </div>
@@ -90,7 +90,7 @@ export default function ContactPage() {
                       </h2>
                       <button
                         onClick={() => setStatus("IDLE")}
-                        className="text-[10px] font-black text-teal-400 uppercase tracking-widest border-b border-teal-500/30 hover:text-white transition-colors"
+                        className="text-sm font-bold text-teal-400 uppercase tracking-wider border-b border-teal-500/30 hover:text-white transition-colors"
                       >
                         Establish New Link
                       </button>
@@ -105,31 +105,31 @@ export default function ContactPage() {
                     >
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div className="space-y-2">
-                          <label className="text-[9px] font-black text-slate-500 uppercase tracking-widest ml-1">
+                          <label className="text-sm font-medium text-slate-300 ml-1">
                             {t("name")}
                           </label>
                           <input
                             {...register("name")}
-                            className={`w-full bg-slate-950/50 border ${errors.name ? "border-red-500/50" : "border-white/5"} rounded-xl p-4 text-xs font-black uppercase tracking-widest focus:border-blue-500/50 focus:ring-0 transition-all`}
-                            placeholder="IDENTIFY YOURSELF"
+                            className={`w-full bg-slate-950/50 border ${errors.name ? "border-red-500/50" : "border-white/5"} rounded-xl p-4 text-base font-medium text-white placeholder-slate-500 focus:border-blue-500/50 focus:ring-0 transition-all`}
+                            placeholder="Identify yourself"
                           />
                           {errors.name && (
-                            <p className="text-[8px] font-bold text-red-500 ml-1">
+                            <p className="text-xs font-medium text-red-500 ml-1 mt-1">
                               {errors.name.message}
                             </p>
                           )}
                         </div>
                         <div className="space-y-2">
-                          <label className="text-[9px] font-black text-slate-500 uppercase tracking-widest ml-1">
+                          <label className="text-sm font-medium text-slate-300 ml-1">
                             {t("email")}
                           </label>
                           <input
                             {...register("email")}
-                            className={`w-full bg-slate-950/50 border ${errors.email ? "border-red-500/50" : "border-white/5"} rounded-xl p-4 text-xs font-black uppercase tracking-widest focus:border-blue-500/50 focus:ring-0 transition-all`}
-                            placeholder="SIGNAL@DOMAIN.COM"
+                            className={`w-full bg-slate-950/50 border ${errors.email ? "border-red-500/50" : "border-white/5"} rounded-xl p-4 text-base font-medium text-white placeholder-slate-500 focus:border-blue-500/50 focus:ring-0 transition-all`}
+                            placeholder="signal@domain.com"
                           />
                           {errors.email && (
-                            <p className="text-[8px] font-bold text-red-500 ml-1">
+                            <p className="text-xs font-medium text-red-500 ml-1 mt-1">
                               {errors.email.message}
                             </p>
                           )}
@@ -138,31 +138,31 @@ export default function ContactPage() {
 
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div className="space-y-2">
-                          <label className="text-[9px] font-black text-slate-500 uppercase tracking-widest ml-1">
+                          <label className="text-sm font-medium text-slate-300 ml-1">
                             {t("rank")}
                           </label>
                           <input
                             {...register("rank")}
-                            className={`w-full bg-slate-950/50 border ${errors.rank ? "border-red-500/50" : "border-white/5"} rounded-xl p-4 text-xs font-black uppercase tracking-widest focus:border-blue-500/50 focus:ring-0 transition-all`}
-                            placeholder="E.G. RADIANT / DIAMOND I"
+                            className={`w-full bg-slate-950/50 border ${errors.rank ? "border-red-500/50" : "border-white/5"} rounded-xl p-4 text-base font-medium text-white placeholder-slate-500 focus:border-blue-500/50 focus:ring-0 transition-all`}
+                            placeholder="e.g. Radiant / Diamond I"
                           />
                           {errors.rank && (
-                            <p className="text-[8px] font-bold text-red-500 ml-1">
+                            <p className="text-xs font-medium text-red-500 ml-1 mt-1">
                               {errors.rank.message}
                             </p>
                           )}
                         </div>
                         <div className="space-y-2">
-                          <label className="text-[9px] font-black text-slate-500 uppercase tracking-widest ml-1">
+                          <label className="text-sm font-medium text-slate-300 ml-1">
                             {t("discord")}
                           </label>
                           <input
                             {...register("discord")}
-                            className={`w-full bg-slate-950/50 border ${errors.discord ? "border-red-500/50" : "border-white/5"} rounded-xl p-4 text-xs font-black uppercase tracking-widest focus:border-blue-500/50 focus:ring-0 transition-all`}
-                            placeholder="USERNAME#0000"
+                            className={`w-full bg-slate-950/50 border ${errors.discord ? "border-red-500/50" : "border-white/5"} rounded-xl p-4 text-base font-medium text-white placeholder-slate-500 focus:border-blue-500/50 focus:ring-0 transition-all`}
+                            placeholder="username#0000"
                           />
                           {errors.discord && (
-                            <p className="text-[8px] font-bold text-red-500 ml-1">
+                            <p className="text-xs font-medium text-red-500 ml-1 mt-1">
                               {errors.discord.message}
                             </p>
                           )}
@@ -170,17 +170,17 @@ export default function ContactPage() {
                       </div>
 
                       <div className="space-y-2">
-                        <label className="text-[9px] font-black text-slate-500 uppercase tracking-widest ml-1">
+                        <label className="text-sm font-medium text-slate-300 ml-1">
                           {t("message")}
                         </label>
                         <textarea
                           {...register("message")}
                           rows={5}
-                          className={`w-full bg-slate-950/50 border ${errors.message ? "border-red-500/50" : "border-white/5"} rounded-xl p-4 text-xs font-black tracking-widest focus:border-blue-500/50 focus:ring-0 transition-all resize-none`}
-                          placeholder="DETAILED MISSION REPORT..."
+                          className={`w-full bg-slate-950/50 border ${errors.message ? "border-red-500/50" : "border-white/5"} rounded-xl p-4 text-base font-medium text-white placeholder-slate-500 focus:border-blue-500/50 focus:ring-0 transition-all resize-none`}
+                          placeholder="Detailed mission report..."
                         ></textarea>
                         {errors.message && (
-                          <p className="text-[8px] font-bold text-red-500 ml-1">
+                          <p className="text-xs font-medium text-red-500 ml-1 mt-1">
                             {errors.message.message}
                           </p>
                         )}
@@ -198,13 +198,13 @@ export default function ContactPage() {
                           {status === "TRANSMITTING" ? (
                             <>
                               <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin"></div>
-                              <span className="text-xs font-black uppercase tracking-tighter text-white">
+                              <span className="text-sm font-bold text-white">
                                 Transmitting Data Package...
                               </span>
                             </>
                           ) : (
                             <>
-                              <span className="text-xs font-black uppercase tracking-tighter text-slate-950 group-hover:text-white transition-colors">
+                              <span className="text-sm font-bold text-slate-950 group-hover:text-white transition-colors">
                                 {t("submit")}
                               </span>
                               <svg
@@ -240,12 +240,12 @@ export default function ContactPage() {
                   <h3 className="text-lg font-black text-white uppercase italic tracking-tighter">
                     {t("infoTitle")}
                   </h3>
-                  <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest leading-relaxed">
+                  <p className="text-sm font-medium text-slate-400 leading-relaxed">
                     {t("infoDesc")}
                   </p>
                   <a
                     href="https://discord.gg/tftcoaching"
-                    className="block w-full py-4 rounded-xl bg-[#5865F2] hover:bg-[#4752C4] text-center font-black text-[10px] text-white uppercase tracking-widest transition-transform hover:scale-105"
+                    className="block w-full py-4 rounded-xl bg-[#5865F2] hover:bg-[#4752C4] text-center font-bold text-sm text-white uppercase tracking-wider transition-transform hover:scale-105"
                   >
                     {t("discordButton")}
                   </a>
@@ -254,18 +254,18 @@ export default function ContactPage() {
                 <div className="pt-8 border-t border-white/5 space-y-6">
                   <div className="flex items-center justify-between">
                     <div className="space-y-1">
-                      <div className="text-[9px] font-black text-slate-500 uppercase tracking-widest">
+                      <div className="text-sm font-medium text-slate-400">
                         {t("emailUs")}
                       </div>
-                      <div className="text-xs font-black text-blue-400 uppercase italic">
-                        HQ@TFT-COACHING.NET
+                      <div className="text-base font-semibold text-blue-400">
+                        hq@tft-coaching.net
                       </div>
                     </div>
                     <div className="space-y-1 text-right">
-                      <div className="text-[9px] font-black text-slate-500 uppercase tracking-widest">
+                      <div className="text-sm font-medium text-slate-400">
                         {t("hours")}
                       </div>
-                      <div className="text-xs font-black text-slate-300 uppercase italic">
+                      <div className="text-base font-semibold text-slate-300">
                         {t("hoursValue")}
                       </div>
                     </div>

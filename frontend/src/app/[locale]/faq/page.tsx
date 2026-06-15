@@ -59,7 +59,7 @@ export default function FAQPage() {
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.6)]"></div>
-                <span className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em]">
+                <span className="text-xs font-bold text-blue-400 uppercase tracking-widest">
                   Knowledge Base
                 </span>
               </div>
@@ -95,7 +95,7 @@ export default function FAQPage() {
                   placeholder="Search..."
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  className="w-full bg-transparent border-none text-xs font-black tracking-widest p-5 text-white placeholder:text-white/60 focus:outline-none focus:ring-0"
+                  className="w-full bg-transparent border-none text-base font-medium p-5 text-white placeholder:text-slate-500 focus:outline-none focus:ring-0"
                 />
               </div>
             </div>
@@ -103,7 +103,7 @@ export default function FAQPage() {
 
           {/* Result Counter */}
           {search && (
-            <div className="text-[10px] font-black text-teal-400 uppercase tracking-widest animate-pulse">
+            <div className="text-xs font-bold text-teal-400 uppercase tracking-wider animate-pulse">
               Matching signals found:{" "}
               {filteredCategories.reduce((acc, c) => acc + c.items.length, 0)}
             </div>
@@ -114,14 +114,14 @@ export default function FAQPage() {
             {filteredCategories.length === 0 ? (
               <div className="py-20 text-center space-y-4">
                 <span className="text-4xl grayscale opacity-20">📡</span>
-                <div className="text-[10px] font-black text-slate-600 uppercase tracking-widest">
+                <div className="text-sm font-semibold text-slate-500 uppercase tracking-wider">
                   Signal Lost: No matching protocols found.
                 </div>
               </div>
             ) : (
               filteredCategories.map((category, catIdx) => (
                 <div key={catIdx} className="space-y-6">
-                  <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 flex items-center gap-3 italic">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 flex items-center gap-3 italic">
                     <span className="w-4 h-px bg-slate-800"></span>
                     {t(category.titleKey)}
                   </h3>
@@ -143,7 +143,7 @@ export default function FAQPage() {
                             className="w-full px-8 py-6 flex items-center justify-between text-left cursor-pointer focus:outline-none"
                           >
                             <span
-                              className={`font-mono transition-colors ${isOpen ? "text-blue-400" : "text-slate-200 group-hover:text-white"}`}
+                              className={`text-sm sm:text-base font-medium transition-colors ${isOpen ? "text-blue-400" : "text-slate-200 group-hover:text-white"}`}
                             >
                               {t(item.q)}
                             </span>
@@ -170,11 +170,11 @@ export default function FAQPage() {
                                   ease: [0.23, 1, 0.32, 1],
                                 }}
                               >
-                                <div className="px-8 pb-8 text-xs sm:text-sm text-slate-400 font-medium leading-relaxed font-mono">
+                                <div className="px-8 pb-8 text-sm text-slate-400 font-medium leading-relaxed">
                                   <div className="pt-4 border-t border-white/5">
                                     {t(item.a)}
                                   </div>
-                                  <div className="mt-6 flex items-center gap-4 text-[8px] font-black text-slate-600 uppercase tracking-widest">
+                                  <div className="mt-6 flex items-center gap-4 text-[10px] font-bold text-slate-500 uppercase tracking-wider">
                                     <span>Security: Verified</span>
                                     <span className="w-1 h-1 rounded-full bg-slate-800"></span>
                                     <span>Read Time: 1m</span>
@@ -195,16 +195,16 @@ export default function FAQPage() {
           {/* Help Desk Bottom */}
           <div className="p-8 rounded-3xl border border-white/5 bg-slate-950/50 flex flex-col md:flex-row items-center justify-between gap-8 mt-20">
             <div className="space-y-1">
-              <div className="text-[10px] font-black text-white uppercase italic tracking-widest">
+              <div className="text-sm font-bold text-white uppercase italic tracking-wider">
                 Still Awaiting Orders?
               </div>
-              <p className="text-[9px] font-bold text-slate-500 uppercase tracking-widest">
+              <p className="text-xs font-medium text-slate-400 uppercase tracking-wider">
                 Issues? Contact Tactical Support.
               </p>
             </div>
             <Link
               href="/contact"
-              className="px-8 py-4 rounded-xl bg-white text-slate-950 text-[10px] font-black uppercase tracking-tighter hover:scale-105 transition-transform shadow-xl"
+              className="px-8 py-4 rounded-xl bg-white text-slate-950 text-xs font-bold uppercase tracking-wider hover:scale-105 transition-transform shadow-xl"
             >
               Contact Command
             </Link>

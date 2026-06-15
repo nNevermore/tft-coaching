@@ -84,7 +84,7 @@ export default function LoginPage() {
           <span className="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center font-black text-transparent bg-clip-text bg-gradient-to-tr from-blue-400 to-teal-400 shadow-xl group-hover:scale-110 transition-transform">
             TF
           </span>
-          <span className="hidden sm:block text-sm font-black tracking-widest text-slate-400 group-hover:text-white transition-colors uppercase">
+          <span className="hidden sm:block text-sm font-bold tracking-wider text-slate-400 group-hover:text-white transition-colors uppercase">
             Exit to Base
           </span>
         </Link>
@@ -102,13 +102,13 @@ export default function LoginPage() {
 
           {/* Heading */}
           <div className="flex flex-col gap-2 items-center text-center mb-10">
-            <div className="px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-[10px] font-bold text-blue-400 tracking-[0.2em] uppercase mb-4 animate-pulse">
+            <div className="px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs font-bold text-blue-400 tracking-wider uppercase mb-4 animate-pulse">
               System Authorization
             </div>
-            <h1 className="text-3xl font-black tracking-tighter text-white uppercase italic">
+            <h1 className="text-3xl font-extrabold tracking-tight text-white uppercase italic">
               {t("title")}
             </h1>
-            <p className="text-sm text-slate-500 font-medium">
+            <p className="text-sm text-slate-400 font-medium">
               {t("subtitle")}
             </p>
           </div>
@@ -146,7 +146,7 @@ export default function LoginPage() {
                   >
                     <path d="M11.66 2.08L5.3 5.43c-.45.24-.76.7-.82 1.2l-.76 6.44c-.06.51.15.99.55 1.3l5.34 4.07c.4.3.94.34 1.38.1l6.36-3.35c.45-.24.76-.7.82-1.2l.76-6.44c.06-.51-.15-.99-.55-1.3l-5.34-4.07c-.4-.3-.94-.34-1.38-.1zm-1.16 4.42l4.5 3.5-4.5 3.5v-7z" />
                   </svg>
-                  <span className="text-xs font-black uppercase tracking-tighter text-slate-950 group-hover:text-white transition-colors">
+                  <span className="text-sm font-bold text-slate-950 group-hover:text-white transition-colors">
                     {t("riotSignIn")}
                   </span>
                 </div>
@@ -155,7 +155,7 @@ export default function LoginPage() {
               {/* Separator */}
               <div className="relative flex items-center justify-center">
                 <div className="w-full border-t border-white/5"></div>
-                <div className="absolute px-4 bg-slate-950 text-[9px] font-black text-slate-500 uppercase tracking-[0.3em] backdrop-blur-md">
+                <div className="absolute px-4 bg-slate-950 text-xs font-bold text-slate-500 uppercase tracking-widest backdrop-blur-md">
                   {t("demoHeader")}
                 </div>
               </div>
@@ -194,12 +194,12 @@ export default function LoginPage() {
                       <div
                         className={`w-1.5 h-1.5 rounded-full ${item.color.replace("text", "bg")} animate-pulse`}
                       ></div>
-                      <span className="text-[10px] font-black uppercase tracking-widest text-slate-300 group-hover:text-white">
+                      <span className="text-xs font-bold uppercase tracking-wider text-slate-300 group-hover:text-white">
                         {item.label}
                       </span>
                     </div>
                     <span
-                      className={`text-[10px] font-mono ${item.color} opacity-60 group-hover:opacity-100`}
+                      className={`text-xs font-mono ${item.color} opacity-70 group-hover:opacity-100`}
                     >
                       {item.email.split("@")[0]}
                     </span>
@@ -211,7 +211,7 @@ export default function LoginPage() {
         </div>
 
         {/* Support Link */}
-        <p className="mt-8 text-center text-[10px] text-slate-600 font-bold uppercase tracking-widest">
+        <p className="mt-8 text-center text-xs text-slate-500 font-bold uppercase tracking-wider">
           Trouble signing in?{" "}
           <Link
             href="/contact"

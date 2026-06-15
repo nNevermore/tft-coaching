@@ -41,10 +41,10 @@ export default function Footer() {
           {/* Links Matrix (8 cols) */}
           <div className="md:col-span-8 grid grid-cols-2 gap-12">
             <div className="space-y-6">
-              <h3 className="text-[10px] font-black uppercase tracking-[0.4em] text-white italic">
+              <h3 className="text-xs font-bold uppercase tracking-widest text-white italic">
                 {t("links")}
               </h3>
-              <ul className="space-y-4 text-[10px] font-black uppercase tracking-widest">
+              <ul className="space-y-4 text-xs font-bold uppercase tracking-wider">
                 <li>
                   <Link
                     href="/"
@@ -72,10 +72,10 @@ export default function Footer() {
               </ul>
             </div>
             <div className="space-y-6">
-              <h3 className="text-[10px] font-black uppercase tracking-[0.4em] text-white italic">
+              <h3 className="text-xs font-bold uppercase tracking-widest text-white italic">
                 {t("legal")}
               </h3>
-              <ul className="space-y-4 text-[10px] font-black uppercase tracking-widest">
+              <ul className="space-y-4 text-xs font-bold uppercase tracking-wider">
                 <li>
                   <Link
                     href="/terms"
@@ -109,19 +109,19 @@ export default function Footer() {
         <div className="pt-12 border-t border-white/5 space-y-8">
           <div className="p-6 rounded-2xl bg-slate-900/40 border border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="flex items-center gap-4">
-              <div className="px-3 py-1 rounded bg-slate-950 border border-white/10 text-[8px] font-black text-slate-500 uppercase tracking-widest">
+              <div className="px-3 py-1 rounded bg-slate-950 border border-white/10 text-[10px] font-bold text-slate-500 uppercase tracking-widest">
                 Official
               </div>
-              <div className="text-[11px] font-bold text-slate-400 italic">
+              <div className="text-xs font-medium text-slate-400 italic">
                 {t("riotDisclaimer")}
               </div>
             </div>
-            <div className="text-[14px] font-black text-white uppercase italic tracking-tighter">
+            <div className="text-sm font-bold text-white uppercase italic tracking-wider">
               TFT-COACHING <span className="text-teal-500">#2026</span>
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-[9px] font-black uppercase tracking-[0.2em] text-slate-500">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-semibold uppercase tracking-wider text-slate-500">
             <span>
               &copy; {new Date().getFullYear()} {t("logo")}. {t("rights")}
             </span>
