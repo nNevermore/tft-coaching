@@ -47,7 +47,7 @@ export default function FAQPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-white flex flex-col relative overflow-hidden font-[family-name:var(--font-geist-sans)] selection:bg-blue-500/30">
       {/* Tactical Grid Background */}
-      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] pointer-events-none"></div>
+      <div className="absolute inset-0 bg-[url('/noise.svg')] opacity-[0.03] pointer-events-none"></div>
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-gradient-to-b from-blue-600/5 to-transparent blur-[120px] pointer-events-none"></div>
 
       <Navbar />
@@ -74,18 +74,29 @@ export default function FAQPage() {
             {/* Search Module */}
             <div className="relative max-w-md group">
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-teal-500 rounded-2xl blur opacity-20 group-focus-within:opacity-40 transition duration-500"></div>
-              <div className="relative flex items-center bg-slate-900 border border-white/5 rounded-2xl overflow-hidden">
-                <div className="pl-5 text-slate-500">🔍</div>
+              <div className="relative flex items-center bg-slate-900 border border-white/5 hover:border-white/10 focus-within:border-blue-500/30 rounded-2xl overflow-hidden transition-all duration-300">
+                <div className="pl-5 text-slate-500 group-focus-within:text-blue-500 transition-colors duration-300">
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                    />
+                  </svg>
+                </div>
                 <input
                   type="text"
-                  placeholder="Search mission briefings..."
+                  placeholder="Search..."
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  className="w-full bg-transparent border-none text-xs font-black uppercase tracking-widest p-5 focus:ring-0 placeholder:text-slate-700"
+                  className="w-full bg-transparent border-none text-xs font-black tracking-widest p-5 text-white placeholder:text-white/60 focus:outline-none focus:ring-0"
                 />
-                <div className="pr-5 text-[8px] font-mono text-slate-600">
-                  INTEL_SCAN_V2
-                </div>
               </div>
             </div>
           </div>
@@ -132,7 +143,7 @@ export default function FAQPage() {
                             className="w-full px-8 py-6 flex items-center justify-between text-left cursor-pointer focus:outline-none"
                           >
                             <span
-                              className={`text-sm font-black uppercase italic tracking-tight transition-colors ${isOpen ? "text-blue-400" : "text-slate-200 group-hover:text-white"}`}
+                              className={`font-mono transition-colors ${isOpen ? "text-blue-400" : "text-slate-200 group-hover:text-white"}`}
                             >
                               {t(item.q)}
                             </span>
