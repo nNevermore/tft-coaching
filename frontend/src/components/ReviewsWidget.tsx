@@ -140,7 +140,7 @@ export default function ReviewsWidget() {
       </div>
 
       {/* INFINITE MARQUEE ROWS */}
-      <div className="space-y-8 pointer-events-none">
+      <div className="space-y-8">
         {/* Row 1: Right to Left */}
         <div className="flex overflow-hidden group">
           <div className="flex animate-marquee group-hover:[animation-play-state:paused]">
