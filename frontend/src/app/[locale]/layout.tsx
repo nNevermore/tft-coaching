@@ -4,6 +4,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import { headers } from "next/headers";
 import { env } from "@/env";
 import "../globals.css";
 
@@ -15,15 +16,18 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "HomePage" });
 
+  const headersList = await headers();
+  const host = headersList.get("x-forwarded-host") || headersList.get("host") || "tft-coaching.net";
+  const protocol = host.includes("localhost") || host.includes("127.0.0.1") ? "http" : "https";
+  const appUrl = `${protocol}://${host}`;
+
   return {
     title: {
       template: `%s | TFT-Coaching Elite`,
       default: t("title"),
     },
     description: t("description"),
-    metadataBase: new URL(
-      env.NEXT_PUBLIC_APP_URL || "https://tft-coaching.net",
-    ),
+    metadataBase: new URL(appUrl),
     alternates: {
       canonical: `/${locale}`,
       languages: {
