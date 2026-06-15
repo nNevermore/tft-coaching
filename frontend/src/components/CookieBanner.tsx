@@ -34,9 +34,9 @@ export default function CookieBanner() {
       <div className="space-y-4">
         <div className="flex items-center gap-2">
           <span className="text-xl">🍪</span>
-          <h4 className="text-sm font-bold text-white tracking-tight">
+          <p className="text-sm font-bold text-white tracking-tight">
             {t("title")}
-          </h4>
+          </p>
         </div>
         <p className="text-xs text-slate-400 leading-relaxed">
           {t("description")}
