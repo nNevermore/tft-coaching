@@ -23,8 +23,10 @@ declare module "next-auth/jwt" {
   }
 }
 
+import Pusher from "pusher-js";
+
 declare global {
   interface Window {
-    Pusher?: any;
+    Pusher?: typeof Pusher;
   }
 }

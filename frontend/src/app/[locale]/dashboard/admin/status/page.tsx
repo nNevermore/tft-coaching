@@ -33,13 +33,14 @@ async function getBackendStatus(): Promise<{
 
     const data: StatusData = await res.json();
     return { success: true, data, error: null };
-  } catch (err: any) {
+  } catch (err) {
     return {
       success: false,
       data: null,
       error:
-        err.message ||
-        "Brak odpowiedzi od serwera API (timeout/network error).",
+        err instanceof Error
+          ? err.message
+          : "Brak odpowiedzi od serwera API (timeout/network error).",
     };
   }
 }

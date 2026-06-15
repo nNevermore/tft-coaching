@@ -64,7 +64,7 @@ export async function fetchTacticalIntel(): Promise<
 
     const data = await response.json();
     return data as TacticalIntelResponse;
-  } catch (error: any) {
+  } catch (error) {
     if (process.env.NODE_ENV === "production") {
       console.error("Failed to fetch Tactical Intel:", error);
       return { error: "INTERNAL_SYSTEM_FAILURE" };

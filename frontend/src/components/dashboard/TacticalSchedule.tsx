@@ -8,16 +8,16 @@ const HOURS = Array.from({ length: 14 }, (_, i) => i + 9); // 9:00 to 22:00
 
 interface Slot {
   id?: string;
-  startTime: Date;
+  startTime: Date | string;
   isBooked: boolean;
 }
 
 export default function TacticalSchedule({
   initialSlots,
 }: {
-  initialSlots: any[];
+  initialSlots: Slot[];
 }) {
-  const [activeSlots, setActiveSlots] = useState<any[]>(initialSlots);
+  const [activeSlots, setActiveSlots] = useState<Slot[]>(initialSlots);
   const [isPending, setIsPending] = useState(false);
 
   const isSlotActive = (dayIdx: number, hour: number) => {

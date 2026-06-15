@@ -3,7 +3,7 @@ import { getAdminData, updateSpecialistStatus } from "@/app/actions/admin";
 
 // --- Components ---
 const StatusIndicator = ({ status }: { status: string }) => {
-  const colors: any = {
+  const colors: Record<string, string> = {
     ONLINE: "bg-emerald-500",
     OFFLINE: "bg-slate-700",
     IN_COMBAT: "bg-blue-500 animate-pulse",

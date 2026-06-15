@@ -75,9 +75,16 @@ export const authOptions: NextAuthOptions = {
       token: "https://auth.riotgames.com/token",
       userinfo:
         "https://europe.api.riotgames.com/riot/account/v1/accounts/by-puuid/me",
-      profile(profile: any) {
+      profile(profile: {
+        puuid?: string;
+        sub?: string;
+        gameName?: string;
+        tagLine?: string;
+        name?: string;
+        email?: string;
+      }) {
         return {
-          id: profile.puuid || profile.sub,
+          id: profile.puuid || profile.sub || "",
           name:
             profile.gameName && profile.tagLine
               ? `${profile.gameName}#${profile.tagLine}`

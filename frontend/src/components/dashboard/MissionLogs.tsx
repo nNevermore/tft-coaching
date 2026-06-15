@@ -77,8 +77,10 @@ export default function MissionLogs({ isSuccess }: { isSuccess: boolean }) {
     // Listen for tactical updates
     const channel = echo
       .private(channelName)
-      .listen(".mission.updated", (data: any) => {
-        console.log("Tactical Signal Received:", data);
+      .listen(
+        ".mission.updated",
+        (data: { mission_id: string; status: string; intel?: { summary?: string } }) => {
+          console.log("Tactical Signal Received:", data);
 
         setMissions((currentMissions) => {
           // Check if mission exists, if so update it, otherwise add it
@@ -89,7 +91,7 @@ export default function MissionLogs({ isSuccess }: { isSuccess: boolean }) {
             const updated = [...currentMissions];
             updated[index] = {
               ...updated[index],
-              status: data.status,
+              status: data.status as MissionStatus,
               intelSummary: data.intel?.summary || updated[index].intelSummary,
             };
             return updated;

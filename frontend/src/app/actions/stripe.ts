@@ -76,10 +76,12 @@ export async function createCheckoutSession(type: "live" | "vod") {
     }
 
     return { url: checkoutSession.url };
-  } catch (error: any) {
+  } catch (error) {
     console.error("Stripe Checkout Error:", error);
-    throw new Error(
-      error.message || "Wystąpił nieoczekiwany błąd płatności Stripe.",
-    );
+    const message =
+      error instanceof Error
+        ? error.message
+        : "Wystąpił nieoczekiwany błąd płatności Stripe.";
+    throw new Error(message);
   }
 }
