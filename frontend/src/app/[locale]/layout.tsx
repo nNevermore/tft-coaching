@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Providers } from "@/components/Providers";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -106,6 +107,7 @@ export default async function RootLayout({
               </div>
             )}
           </Providers>
+          <SpeedInsights />
         </NextIntlClientProvider>
       </body>
     </html>
