@@ -121,7 +121,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-[9px] font-black uppercase tracking-[0.2em] text-slate-600">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-[9px] font-black uppercase tracking-[0.2em] text-slate-500">
             <span>
               &copy; {new Date().getFullYear()} {t("logo")}. {t("rights")}
             </span>

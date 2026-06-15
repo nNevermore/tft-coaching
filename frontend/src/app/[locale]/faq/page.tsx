@@ -60,7 +60,7 @@ export default function FAQPage() {
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.6)]"></div>
                 <span className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em]">
-                  Protocol / Knowledge Base
+                  Knowledge Base
                 </span>
               </div>
               <h1 className="text-4xl sm:text-6xl font-black italic tracking-tighter text-white uppercase leading-none">
@@ -122,11 +122,10 @@ export default function FAQPage() {
                       return (
                         <div
                           key={id}
-                          className={`group rounded-2xl border transition-all duration-500 ${
-                            isOpen
-                              ? "bg-slate-900/60 border-blue-500/30 shadow-2xl"
-                              : "bg-slate-900/20 border-white/5 hover:border-white/10"
-                          } overflow-hidden`}
+                          className={`group rounded-2xl border transition-all duration-500 ${isOpen
+                            ? "bg-slate-900/60 border-blue-500/30 shadow-2xl"
+                            : "bg-slate-900/20 border-white/5 hover:border-white/10"
+                            } overflow-hidden`}
                         >
                           <button
                             onClick={() => setExpandedId(isOpen ? null : id)}
@@ -189,7 +188,7 @@ export default function FAQPage() {
                 Still Awaiting Orders?
               </div>
               <p className="text-[9px] font-bold text-slate-500 uppercase tracking-widest">
-                Protocol encryption issues? Contact Tactical Support.
+                Issues? Contact Tactical Support.
               </p>
             </div>
             <Link

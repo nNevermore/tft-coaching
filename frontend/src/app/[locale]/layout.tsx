@@ -92,7 +92,7 @@ export default async function RootLayout({
                 <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse shrink-0"></span>
                 <span>
                   {locale === "pl"
-                    ? "Ostrzeżenie Taktyczne: Aktywny Tryb Demonstracyjny / Używanie Symulowanych Danych i Płatności (Brak Konfiguracji .env)"
+                    ? "Ostrzeżenie: Aktywny Tryb Demonstracyjny / Używanie Symulowanych Danych i Płatności (Brak Konfiguracji .env)"
                     : "Tactical Warning: Sandbox Demo Mode Active / Using Simulated Mock Intelligence & Payments (No API Keys Configured)"}
                 </span>
               </div>
