@@ -120,7 +120,7 @@ export default function Navbar() {
             <button
               onClick={toggleLocale}
               className="group flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/50 border border-slate-800 hover:border-teal-500/50 transition-all cursor-pointer"
-              aria-label={t("switchLocale")}
+              aria-label={`${currentLocale.toUpperCase()} / ${(currentLocale === "en" ? "pl" : "en").toUpperCase()} - ${t("switchLocale")}`}
             >
               <span className="text-xs font-bold text-slate-500 group-hover:text-teal-400 uppercase">
                 {currentLocale}
