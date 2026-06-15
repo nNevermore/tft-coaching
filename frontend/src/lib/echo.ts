@@ -57,3 +57,47 @@ export const echo =
         },
       })
     : null;
+
+// --- bfcache (Back/Forward Cache) Compatibility ---
+// Pages with active WebSocket connections cannot use the browser's page state cache (bfcache).
+// To restore bfcache eligibility, we disconnect the WebSocket connection when navigating away (pagehide)
+// and reconnect when navigating back and restoring from cache (pageshow).
+interface ReconnectablePusherConnector {
+  pusher?: {
+    connect: () => void;
+  };
+}
+
+interface ReconnectableSocketConnector {
+  socket?: {
+    connect: () => void;
+  };
+}
+
+if (typeof window !== "undefined" && echo) {
+  const handlePageHide = () => {
+    console.log("[WebSocket] Page entering background/cache. Disconnecting Echo...");
+    echo.disconnect();
+  };
+
+  const handlePageShow = (event: PageTransitionEvent) => {
+    if (event.persisted) {
+      console.log("[WebSocket] Page restored from bfcache. Reconnecting Echo...");
+      const connector = echo.connector as unknown as (ReconnectablePusherConnector & ReconnectableSocketConnector);
+      if (connector) {
+        if (connector.pusher) {
+          connector.pusher.connect();
+        } else if (connector.socket) {
+          connector.socket.connect();
+        } else {
+          echo.connect();
+        }
+      }
+    }
+  };
+
+  window.addEventListener("pagehide", handlePageHide);
+  window.addEventListener("pageshow", handlePageShow);
+}
+
+
