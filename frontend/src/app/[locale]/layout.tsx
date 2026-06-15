@@ -54,7 +54,11 @@ export async function generateMetadata({
       images: ["/og-image.png"],
     },
     icons: {
-      icon: "/favicon.ico",
+      icon: [
+        { url: "/icon.png", type: "image/png" },
+        { url: "/favicon.ico", sizes: "any" }
+      ],
+      apple: "/icon.png",
     },
   };
 }

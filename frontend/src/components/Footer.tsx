@@ -1,5 +1,6 @@
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
+import Logo from "./Logo";
 
 export default function Footer() {
   const t = useTranslations("Footer");
@@ -14,11 +15,9 @@ export default function Footer() {
           {/* Brand Module (4 cols) */}
           <div className="md:col-span-4 space-y-8">
             <div className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center font-black text-transparent bg-clip-text bg-gradient-to-tr from-blue-400 to-teal-400 shadow-xl">
-                TFT
-              </div>
+              <Logo className="shadow-xl" />
               <span className="text-xl font-black tracking-tighter text-white uppercase italic">
-                COACHING<span className="text-teal-500">.</span>
+                TFT-COACHING<span className="text-teal-500">.</span>
               </span>
             </div>
             <p className="text-xs font-medium leading-relaxed max-w-xs text-slate-500">

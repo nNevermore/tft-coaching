@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { Link, usePathname } from "@/i18n/routing";
 import { SignOutButton } from "./SignOutButton";
 import SidebarNav from "@/components/dashboard/SidebarNav";
+import Logo from "@/components/Logo";
 
 export default async function DashboardLayout({
   children,
@@ -29,12 +30,7 @@ export default async function DashboardLayout({
         <div className="flex flex-col h-full overflow-y-auto custom-scrollbar">
           <div className="p-8">
             <Link href="/" className="flex items-center gap-3 group mb-10">
-              <div className="relative">
-                <div className="absolute -inset-1 bg-gradient-to-tr from-blue-600 to-teal-500 rounded-lg blur opacity-20 group-hover:opacity-60 transition duration-500"></div>
-                <span className="relative w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center font-black text-transparent bg-clip-text bg-gradient-to-tr from-blue-400 to-teal-400">
-                  TF
-                </span>
-              </div>
+              <Logo size="md" variant="glow" glowOpacityClass="opacity-20 group-hover:opacity-60" />
               <div className="flex flex-col">
                 <span className="text-sm font-black tracking-widest text-white uppercase italic leading-none">
                   Command

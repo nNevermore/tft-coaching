@@ -4,6 +4,7 @@ import { useSession, signIn } from "next-auth/react";
 import { Link, useRouter } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import { useEffect, useState, useRef } from "react";
+import Logo from "@/components/Logo";
 
 // --- Tactical Decorative Element ---
 const TacticalCorner = ({ className }: { className: string }) => (
@@ -81,9 +82,7 @@ export default function LoginPage() {
       {/* --- Header Navigation --- */}
       <div className="absolute top-8 left-8 right-8 flex justify-between items-center z-20">
         <Link href="/" className="group flex items-center gap-3 cursor-pointer">
-          <span className="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center font-black text-transparent bg-clip-text bg-gradient-to-tr from-blue-400 to-teal-400 shadow-xl group-hover:scale-110 transition-transform">
-            TF
-          </span>
+          <Logo size="md" className="shadow-xl group-hover:scale-110 transition-transform" />
           <span className="hidden sm:block text-sm font-bold tracking-wider text-slate-400 group-hover:text-white transition-colors uppercase">
             Exit to Base
           </span>
