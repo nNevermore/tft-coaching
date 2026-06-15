@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="w-full bg-slate-950 border-t border-white/5 text-slate-500 mt-auto pt-24 pb-12 overflow-hidden relative">
       {/* Background pattern */}
-      <div className="absolute bottom-0 left-0 w-full h-96 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-full h-96 bg-[url('/noise.svg')] opacity-[0.03] pointer-events-none"></div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-16 mb-24">

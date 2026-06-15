@@ -47,7 +47,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-white flex flex-col relative overflow-hidden font-[family-name:var(--font-geist-sans)] selection:bg-blue-500/30">
       {/* Background HUD Layer */}
-      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] pointer-events-none"></div>
+      <div className="absolute inset-0 bg-[url('/noise.svg')] opacity-[0.03] pointer-events-none"></div>
       <div className="absolute top-0 right-0 w-full h-[600px] bg-gradient-to-l from-blue-600/5 to-transparent blur-[120px] pointer-events-none"></div>
 
       <Navbar />

@@ -175,7 +175,7 @@ export default function DashboardPageContent() {
         <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-teal-500 rounded-[2rem] blur opacity-10 group-hover:opacity-20 transition duration-1000"></div>
         <div className="relative p-8 sm:p-12 rounded-[2rem] border border-white/5 bg-slate-900/60 backdrop-blur-2xl overflow-hidden shadow-2xl">
           {/* Background pattern */}
-          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] pointer-events-none"></div>
+          <div className="absolute inset-0 bg-[url('/noise.svg')] opacity-[0.03] pointer-events-none"></div>
           <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blue-500/10 to-transparent skew-x-12 translate-x-1/4"></div>
 
           <div className="relative z-10 grid grid-cols-1 gap-10 items-center">
