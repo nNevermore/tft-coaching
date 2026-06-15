@@ -235,7 +235,7 @@ export default function ContactPage() {
               <div className="p-8 rounded-3xl border border-white/5 bg-slate-900/20 backdrop-blur-sm space-y-8">
                 <div className="space-y-4">
                   <div className="w-12 h-12 rounded-xl bg-[#5865F2]/10 border border-[#5865F2]/20 flex items-center justify-center text-xl">
-                    👾
+                    💬
                   </div>
                   <h3 className="text-lg font-black text-white uppercase italic tracking-tighter">
                     {t("infoTitle")}

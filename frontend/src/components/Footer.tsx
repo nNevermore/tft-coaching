@@ -32,7 +32,7 @@ export default function Footer() {
                 🎞️
               </div>
               <div className="w-8 h-8 rounded-lg bg-slate-900 border border-white/5 flex items-center justify-center hover:border-teal-500/50 hover:text-teal-400 transition-all cursor-pointer">
-                👾
+                💬
               </div>
             </div>
           </div>
