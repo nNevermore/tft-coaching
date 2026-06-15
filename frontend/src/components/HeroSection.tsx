@@ -170,9 +170,9 @@ export default function HeroSection() {
                     <div className="absolute bottom-0 right-0 w-4 h-4 bg-green-500 border-2 border-slate-900 rounded-full"></div>
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-white leading-tight">
+                    <h2 className="text-lg font-bold text-white leading-tight">
                       Mismatched
-                    </h3>
+                    </h2>
                     <p className="text-xs font-semibold text-teal-400">
                       Master / Challenger
                     </p>
