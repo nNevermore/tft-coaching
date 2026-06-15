@@ -2,12 +2,15 @@ import type { Metadata } from "next";
 import { Providers } from "@/components/Providers";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages, getTranslations } from "next-intl/server";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
-import { headers } from "next/headers";
 import { env } from "@/env";
 import "../globals.css";
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
 export async function generateMetadata({
   params,
@@ -17,10 +20,7 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "HomePage" });
 
-  const headersList = await headers();
-  const host = headersList.get("x-forwarded-host") || headersList.get("host") || "tft-coaching.net";
-  const protocol = host.includes("localhost") || host.includes("127.0.0.1") ? "http" : "https";
-  const appUrl = `${protocol}://${host}`;
+  const appUrl = env.NEXT_PUBLIC_APP_URL || "https://tft-coaching.net";
 
   return {
     title: {
@@ -80,6 +80,8 @@ export default async function RootLayout({
   if (!routing.locales.includes(locale as (typeof routing.locales)[number])) {
     notFound();
   }
+
+  setRequestLocale(locale);
 
   const messages = await getMessages();
 
