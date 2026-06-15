@@ -1,6 +1,3 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import CookieBanner from "@/components/CookieBanner";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 export default async function CookiesPage({
@@ -14,14 +11,7 @@ export default async function CookiesPage({
   const t = await getTranslations("LegalPages");
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white flex flex-col relative overflow-hidden font-[family-name:var(--font-geist-sans)]">
-      {/* Background glow effects */}
-      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-96 h-96 bg-teal-500/5 rounded-full blur-3xl pointer-events-none"></div>
-
-      <Navbar />
-
-      <main className="flex-grow py-20 relative z-10">
+    <main className="flex-grow py-20 relative z-10">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 space-y-12">
           {/* Header */}
           <div className="space-y-4 text-center md:text-left">
@@ -68,8 +58,5 @@ export default async function CookiesPage({
         </div>
       </main>
 
-      <CookieBanner />
-      <Footer />
-    </div>
   );
 }

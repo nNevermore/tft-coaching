@@ -1,8 +1,5 @@
 "use client";
 
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import CookieBanner from "@/components/CookieBanner";
 import { useState, useMemo } from "react";
 import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
@@ -45,14 +42,7 @@ export default function FAQPage() {
   }, [search, t]);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white flex flex-col relative overflow-hidden font-[family-name:var(--font-geist-sans)] selection:bg-blue-500/30">
-      {/* Tactical Grid Background */}
-      <div className="absolute inset-0 bg-[url('/noise.svg')] opacity-[0.03] pointer-events-none"></div>
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-gradient-to-b from-blue-600/5 to-transparent blur-[120px] pointer-events-none"></div>
-
-      <Navbar />
-
-      <main className="flex-grow py-32 relative z-10">
+    <main className="flex-grow py-32 relative z-10">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 space-y-16">
           {/* Header & Search */}
           <div className="space-y-8">
@@ -212,9 +202,5 @@ export default function FAQPage() {
           </div>
         </div>
       </main>
-
-      <CookieBanner />
-      <Footer />
-    </div>
   );
 }
