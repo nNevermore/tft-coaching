@@ -122,12 +122,12 @@ export default function Navbar() {
               className="group flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/50 border border-slate-800 hover:border-teal-500/50 transition-all cursor-pointer"
               aria-label={`${currentLocale.toUpperCase()} / ${(currentLocale === "en" ? "pl" : "en").toUpperCase()} - ${t("switchLocale")}`}
             >
-              <span className="text-xs font-bold text-slate-500 group-hover:text-teal-400 uppercase">
-                {currentLocale}
+              <span className="text-xs font-bold text-slate-500 group-hover:text-teal-400">
+                {currentLocale.toUpperCase()}
               </span>
               <div className="w-4 h-px bg-slate-700 group-hover:bg-teal-500/50 transition-colors"></div>
-              <span className="text-xs font-bold text-slate-300 uppercase">
-                {currentLocale === "en" ? "pl" : "en"}
+              <span className="text-xs font-bold text-slate-300">
+                {(currentLocale === "en" ? "pl" : "en").toUpperCase()}
               </span>
             </button>
 
