@@ -25,7 +25,7 @@ export async function generateMetadata({
       env.NEXT_PUBLIC_APP_URL || "https://tft-coaching.net",
     ),
     alternates: {
-      canonical: "/",
+      canonical: locale === "en" ? "/" : `/${locale}`,
       languages: {
         "en-US": "/en",
         "pl-PL": "/pl",
