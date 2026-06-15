@@ -6,8 +6,8 @@
   font-style: normal;
   font-weight: 300;
   src:
-    url(../assets/fonts/geomanist/geomanist-light.woff) format("woff"),
-    url(../assets/fonts/geomanist/geomanist-light.woff2) format("woff2");
+    url(../assets/fonts/geomanist/geomanist-light.woff2) format("woff2"),
+    url(../assets/fonts/geomanist/geomanist-light.woff) format("woff");
 }
 
 :root {
